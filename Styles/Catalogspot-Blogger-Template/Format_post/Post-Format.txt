@@ -1,0 +1,7 @@
+<div class="item_image">
+<img border="0" class="item_thumb" src="Your_Image-Url.jpg" /> 
+<span class="item_price">$0.00</span>
+</div>
+<div class="item_Description">
+Some text for description your item here! 
+</div>

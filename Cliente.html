@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Gestor de Usuarios</title>
+		<meta chartset="utf-8">
+		
+		<style type="text/css">
+
+			#sup{
+				position: static;
+				top: auto;
+				width: auto; 
+				height: 85px;
+				background:#273746 ;
+				margin-bottom: 4em;
+			}
+
+			#laDe{
+				width: 183px;
+				height: 84%;
+				background:#95A5A6;
+				position: relative;
+
+
+
+			}
+
+			#logo{
+				position: fixed;
+				left: 100px;
+				top:12px;
+			}
+
+			#titulo{
+				color: #EAEDED  
+			}
+
+			#icono{
+				position: relative;
+				top: 12px;
+				left: 12px;
+			}
+
+			#buscar{
+				position: relative;
+				top: -29px;
+				left:450px;
+
+			}
+
+			#logReg{
+				position: relative;
+				top: -50px;
+				left: 70%;
+			}
+
+			.login{
+				text-decoration: none;
+				color: #EAEDED;
+				margin: 10px;
+			}
+
+		</style>
+
+
+		<script type="text/javascript">
+
+  
+
+      function cargaNoticia(){
+        if(peticion == null) {
+          if (window.XMLHttpRequest) {
+            peticion = new XMLHttpRequest();
+          }
+          else {
+            peticion = new ActiveXObject("Microsoft.XMLHTTP");
+          }
+        }
+ 
+        peticion.open('GET', 'http://localhost/ajax/Ejercicio%2012/servidor/generaContenidos.php'+'?nocache='+Math.random(), true);
+        peticion.send(null);
+      }
+
+
+
+
+
+
+		</script>
+	</head>
+
+	<body>
+
+	<div id="sup">      <!--Div de la barra superior, dentro irá el logo, el buscador y los botones de registro-->
+
+		<div id="icono">
+			<img src="C:/Users/Ragnarok/Desktop/Node/PROYECTO/Cliente/Index/img/morgana.png" width="60" height="60" >
+		</div>
+
+		<div id="logo">
+			<h1 color="black"><font id="titulo" face="lato bold">Morgana's Cookies</font> </h1>
+		</div>		
+
+		<div id="buscar">
+			<form action="C:/Users/Ragnarok/Desktop/Node/PROYECTO/Servidor/Servidor.js">
+
+				<input type="text" value="buscar" >
+				<img src="C:/Users/Ragnarok/Desktop/Node/PROYECTO/Cliente/Index/img/oie_transparent.png" width="15" height="15">
+		
+			</form>
+		</div>
+
+		<div id="logReg">
+
+		 	<font face="lato bold"><a href="" class="login">Acceder</a></font>
+		 	<font face="lato bold"><a href="" class="login">Registrarse</a></font>
+		 	<font face="lato bold"><a href="" id="about">Sobre Nosotros</a></font>
+
+		</div>
+
+	</div>   
+
+	<div id="laDe">         <!--Div de la barra lateral-->
+		
+	</div>
+
+		
+		<div>
+			<form action="/">
+			
+				<div>
+					Usuario:
+					<input type="text" required name="usuario">
+				</div>
+
+				<div>
+					Contraseña:
+					<input type="password" required name="contraseña">
+				</div>
+
+				<input type="submit" value="Enviar datos"/>
+			</form>
+		</div>
+
+		<div id="prueba">
+			
+
+
+		</div>
+	</body>
+</html>

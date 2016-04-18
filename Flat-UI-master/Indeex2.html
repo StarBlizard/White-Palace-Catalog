@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Morgana's Cookies</title>
+    <meta name="description" content="Flat UI Kit Free is a Twitter Bootstrap Framework design and Theme, this responsive framework includes a PSD and HTML version."/>
+
+    <meta name="viewport" content="width=1000, initial-scale=1.0, maximum-scale=1.0">
+
+    <!-- Loading Bootstrap -->
+    <link href="dist/css/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Loading Flat UI -->
+    <link href="dist/css/flat-ui.css" rel="stylesheet">
+    <link href="docs/assets/css/demo.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="img/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="C:/Users/Ragnarok/Desktop/Node/PROYECTO/Cliente/Index/CSS/Estilos.css">
+
+    <script type="text/javascript">
+
+    </script>
+
+  </head>
+  <body>
+
+    <div id="contenedor">  <!-- Div contenedor -->
+
+      <!-- _________________________________________________________________________________________________________________________________ -->
+
+      <nav class="navbar navbar-inverse" role="navigation">     <!-- Inicia la barra superior -->
+       <div class="navbar-header">
+         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
+           <span class="sr-only">Toggle navigation</span>
+         </button>
+         <a class="navbar-brand" href="#">Morgana's Cookies</a>
+        </div>
+       <div class="collapse navbar-collapse" id="navbar-collapse-01">
+         <ul class="nav navbar-nav">
+           <li><a href="#fakelink">Categorias</a></li>
+           <li><a href="#fakelink">Descuentos</a></li>
+           <li><a href="#fakelink">En el carro</a></li>
+           <li><a href="#fakelink">Wish List</a></li>
+         </ul>
+         <form class="navbar-form navbar-right" action="#" role="search">
+           <div class="form-group">
+             <div class="input-group">
+               <input class="form-control" id="navbarInput-01" type="search" placeholder="Buscar">
+               <span class="input-group-btn">
+                 <button type="submit" class="btn"><span class="fui-search"></span></button>
+               </span>
+             </div>
+             <button class="btn btn-default navbar-btn" type="button" onclick="accessMostrar()">Acceder</button>
+             <button class="btn btn-default navbar-btn" type="button" onclick="regMostrar()">Registrarse</button>
+           </div>
+         </form>
+       </div><!-- /.navbar-collapse -->
+    </nav><!-- /navbar -->
+
+    <!-- ____________________________________________________________________________________________________________________________________ -->
+
+    <div id="secun">   <!-- Contenedor de... contenidos -->
+
+    	<div class="presCon">
+    		<div class="interior">
+    			<div class="imgCont">
+ 	    			<a href="#fakelink" onclick="productMostrar()">
+ 	    				<img class="imageInt" src="C:/Users/Ragnarok/Desktop/Node/PROYECTO/Cliente/Index/Flat-UI-master/ImagenesTest/66186003.jpg">
+ 	    			</a>
+    			</div>
+    			<div class="textoInt">
+    				<div class="producto">
+    					<strong>Producto: </strong>
+    				</div>
+
+    				<div class="precio">
+    					<strong>Precio: </strong>
+    				</div>
+
+    			</div>
+    		</div>
+    	</div>
+
+
+    <!-- _________________________________________________________________________________________________________________________________________ -->
+
+ <!--   <ul class="pagination-plain" id="pg">    Paginacion
+      <li class="previous">
+        <a href="#">Atras</a>
+      </li>
+      <li>
+        <a href="#">1</a>
+      </li>
+      <li class="next">
+        <a href="#">Siguiente</a>	  Esto se debe de agregar automaticamente cuando el numero de elementos supere cierto limite
+      </li>
+    </ul> -->
+
+        <!-- ______________________________________________________________________________________________________________________________________ -->
+
+		<div id="accessFade" class="overlay"></div>  <!-- Ventana modal para "Acceder" -->
+
+        <div id="accessLight" class="acModal">
+          <form method="post" action="indeex2.html">
+  				  <div style="text-align: center; margin:2px; margin-bottom: 65px;">
+  				  	<h4>Entrar</h4>
+  				  </div>
+
+  				  <div style="margin:5px; margin-bottom: 20px;">
+  				  	<div>
+  				  		Usuario:
+  				  	</div>
+  				  	<input type="text" style="width:100%" name="username" id="username" placeholder="username" required="true">
+  				  </div>
+
+  			 	 <div style="margin: 5px; margin-bottom: 30px;">
+  			 		  <div>
+  						  Contraseña:
+  					  </div>
+
+             <input type="text" style="width:100%" name="password" id="password" placeholder="password" required="true">
+
+            </div>
+
+
+				    <label class="checkbox primary" for="checkbox1c">
+              <input type="checkbox" data-toggle="radio" value="" id="checkbox1c" required>
+              Recordarme
+            </label>
+
+  				  <div style="text-align: center">
+  					  <button type="button" class="btn btn-success">Acceder</button>
+					    <button type="button" class="btn btn-link" onclick="accessOcultar()">Salir</button>
+				    </div>
+          </form>
+  	</div>
+
+
+
+
+
+
+
+				<!-- _____________________________________________________________________________________________________________________________-->
+
+
+
+		<div id="regFade" class="overlay"></div>		<!-- Ventana modal para "registrarse" -->
+  			<div id="regLight" class="regModal">
+				<div style="text-align: center; margin:10px; margin-bottom: 30px;">
+  						<h4>Registrarse</h4>
+  				</div>
+  				<div style="float: left; margin:5px; margin-left:80px; margin-right:160px; margin-bottom:40px">
+  					<div style="margin:5px; margin-bottom: 10px;">
+  						<div>
+  							Nombre de usuario:
+  						</div>
+  						<input type="text">
+  					</div>
+
+  					<div style="margin: 5px; margin-bottom: 10px;">
+  						<div>
+  							Contraseña:
+  						</div>
+  						<input type="text">
+  					</div>
+  					<div style="margin: 5px; margin-bottom: 10px;">
+  						<div>
+  							Repetir Contraseña:
+  						</div>
+  						<input type="text">
+  					</div>
+  				</div>
+
+  			 	<div style="float: left; margin:5px; margin-left:80px; margin-right:50px; margin-bottom:40px">
+  					<div style="margin:5px; margin-bottom: 10px;">
+  						<div>
+  							Correo electronico:
+  						</div>
+  						<input type="text">
+  					</div>
+
+  					<div style="margin: 5px; margin-bottom: 10px;">
+  						<div>
+  							Repetir correo electronico:
+  						</div>
+  						<input type="text">
+  					</div>
+
+  					<div style="margin: 5px; margin-bottom: 10px;">
+  						<div>
+  							Pais:
+  						</div>
+  						<input type="text">
+  					</div>
+  			 	</div>
+  				<div style="text-align: center">
+  					<button type="button" class="btn btn-success">Registrarse</button>
+					<button type="button" class="btn btn-link" onclick="regOcultar()">Salir</button>
+				</div>
+  			</div>
+
+
+  				<!-- ____________________________________________________________________________________________________________________________-->
+
+  				<!-- Ventana modal de las imagenes -->
+
+		<div id="productFade" class="overlay"></div>
+  			<div id="productLight" class="modal">
+  				<div>
+  					<img class="imageInt" src="C:/Users/Ragnarok/Desktop/Node/PROYECTO/Cliente/Index/Flat-UI-master/ImagenesTest/66186003.jpg">
+  				</div>
+				<p>Para "<a href="javascript:void(0)" onclick="productOcultar()">cerrar</a></p>
+  			</div>
+
+  				<!-- ________________________________________________________________________________________________________________________-->
+
+    <script src="dist/js/vendor/jquery.min.js"></script>
+    <script src="dist/js/vendor/video.js"></script>
+    <script src="dist/js/flat-ui.min.js"></script>
+    <script src="docs/assets/js/application.js"></script>
+    <script type="text/javascript" src="C:/Users/Ragnarok/Desktop/Node/PROYECTO/Cliente/Index/Flat-UI-master/MooTools-Core-1.6.0.js"></script>
+    <script type="text/javascript" src="C:/Users/Ragnarok/Desktop/Node/PROYECTO/Cliente/Index/JS/modales.js"></script>
+  </body>
+</html>

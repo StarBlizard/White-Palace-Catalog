@@ -1,0 +1,122 @@
+  .overlay{
+    text-align: center;
+     display: none;
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background: #000;
+     z-index:1001;
+     opacity:.75;
+     -moz-opacity: 0.75;
+     filter: alpha(opacity=75);
+}
+
+	.modal {
+        text-align: center;
+        border-radius: 10px;
+        display: none;
+        position: absolute;
+        top: 15%;
+        left: 15%;
+        width: 70%;
+        height: 70%;
+        padding: 16px;
+        background: #fff;
+        color: #333;
+        z-index:1002;
+        overflow: auto;
+    }
+
+  /*  Estilo del popup -------------------------------------------------------------------------------- --------------------------------------*/
+
+    .regModal {
+        border-radius: 10px;
+        display: none;
+        position: absolute;
+        top: 17%;
+        left: 17%;
+        width: 65%;
+        height: 65%;
+        padding: 16px;
+        background: #fff;
+        color: #333;
+        z-index:1002;
+        overflow: auto;
+    }
+
+
+    .acModal {
+        border-radius: 10px;
+        display: none;
+        position: absolute;
+        top: 20%;
+        left: 35%;
+        width: 30%;
+        height: 60%;
+        padding: 16px;
+        background: #fff;
+        color: #333;
+        z-index:1002;
+        overflow: auto;
+    }
+
+
+
+    /*  Estilo del popup -------------------------------------------------------------------------------- --------------------------------------*/
+
+
+
+    #secun{
+		position: auto;
+    		clear: both;
+    		margin:10px;
+    	}
+
+    	.presCon{
+    		float: left;
+    		margin: 10px;
+    		background-color: #48C9B0; 
+    		border-radius: 10px;
+    		width: 327px;
+   	 		height: 220px;
+   	 	}
+
+    	.interior{
+    		clear: both;
+    		overflow: hidden;
+    		margin: 10px;
+    	}
+
+    	#pg{
+    		clear: both;
+    	}
+
+		.imgCont{
+			border-radius: 10px;
+			background-color: white;
+			text-align: center;
+			overflow: hidden;
+			width:307px;
+			height:120px;
+		}
+
+    	.imageInt{
+			text-align: center;  	
+ 			max-width: 100%;
+ 			height: auto;
+ 			margin: 1px
+		}
+
+		.textoInt{
+			line-height: 20px;
+			float: left;
+			overflow: hidden;
+			margin: 5px;
+		}
+
+        #contenedor{
+            overflow: hidden;
+        }
+
