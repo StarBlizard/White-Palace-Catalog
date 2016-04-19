@@ -3,7 +3,7 @@ var app = require('./services/server').app;
 /*
  * Controllers
  * */
-var homeController = require("./controllers/home")
+var indexController = require("./controllers/home")
 var userController = require("./controllers/user")
 
 /*
@@ -11,11 +11,11 @@ var userController = require("./controllers/user")
  * */
 
 // Home
-app.get('/',        homeController.index);
+app.get('/', homeController.index);
 app.get('/home', homeController.home);
 
 // Users
-app.get('/enter_products',  userController.enter_products);
+app.get('/enter_products',  userController.show);
 
 // Example
 app.post('/foo', userController.foo);
