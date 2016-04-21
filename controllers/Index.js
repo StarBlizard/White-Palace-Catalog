@@ -3,12 +3,12 @@
 */
 
 module.exports.index = function(req, res){
-   res.sendFile('Index.html');
+   res.sendFile(path.join(__dirname, '../cliente/', 'Index.html'));
 };
 
 /*
  * Landing page
  * */
 module.exports.home = function(req, res){
-  res.sendFile('/home/home.html');
+  res.sendFile('./home/home.html');
 };

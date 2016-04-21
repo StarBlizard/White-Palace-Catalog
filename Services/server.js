@@ -12,6 +12,9 @@ module.exports = {
     this.server  = new Server();
     this.app     = express(this.server);
 
+    this.app.use(express.static(path.join(__dirname, '../cliente')))
+    console.log(path.join(__dirname, '../cliente'));
+
     this.app.use(bodyParser.json());                         // for parsing application/json
     this.app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
