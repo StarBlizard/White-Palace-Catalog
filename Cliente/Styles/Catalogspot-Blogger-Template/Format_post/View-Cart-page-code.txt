@@ -1,8 +1,0 @@
-<div class="simpleCart_items"></div>
-
-
-
-/*----------------------------------------------
-Note : 
-Copy and paste the above code into post editor in blogger, and do not forget to click HTML button post editor before you paste
------------------------------------------------*/
