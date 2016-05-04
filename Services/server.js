@@ -2,6 +2,7 @@ var Server        = require('http').Server;
 var express       = require('express');
 var bodyParser    = require('body-parser');
 var configuration = require('../config/configuration');
+var path          = require('path');
 
 module.exports = {
 
