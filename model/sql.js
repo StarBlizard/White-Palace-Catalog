@@ -1,12 +1,8 @@
+var configuration = require('../config/configuration');
+
 var knex = require('knex')({
   client: 'mysql',
-  connection: {
-    host     : '127.0.0.1',
-    user     : 'root@localhost',
-    password : 'centauri',
-    database : 'whitepalace',
-    charset  : 'utf8'
-  }
+  connection: configuration.sql
 });
 
 var bookshelf = require('bookshelf')(knex);
@@ -14,3 +10,7 @@ var bookshelf = require('bookshelf')(knex);
 var User = bookshelf.Model.extend({
   tableName: 'hogar'
 });
+
+module.exports.send = function(req, res){
+  console.log('Body: ', req.body);
+};

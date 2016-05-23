@@ -12,5 +12,5 @@ module.exports.index = function(req, res){
  * Landing page
  * */
 module.exports.home = function(req, res){
-  res.sendFile('./home/home.html');
+  res.sendFile(path.join(__dirname, '../views', 'home.html'));
 };

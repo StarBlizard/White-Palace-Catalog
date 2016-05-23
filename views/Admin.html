@@ -4,8 +4,43 @@
 		<title></title>
 		<meta charset="utf-8">
 		<script type="text/javascript">
+			var xhttp
+
+			function creaObjetoAjax () { //Mayoría de navegadores
+				var obj;
+				if (window.XMLHttpRequest) {
+					obj=new XMLHttpRequest();
+					   }
+				else { //para IE 5 y IE 6
+					obj=new ActiveXObject(Microsoft.XMLHTTP);
+					   }
+				return obj;
+			}
+
+			function crea_query_string() {
+				var producto     = document.getElementById("producto");
+				var precio       = document.getElementById("precio");
+				var departamento = document.getElementById('departamento');
+				var categoria    = document.getElementById('categoria');
+
+				return "producto="     + encodeURIComponent(producto.value)     +
+							 "precio=" 	     + encodeURIComponent(precio.value) 	    +
+							 "departamento=" + encodeURIComponent(departamento.value)	+
+							 "categoria="    + encodeURIComponent(categoria.value)	  +
+							 "&nocache="     + Math.random();
+			}
 
 
+
+			function corre(){
+				xhttp = creaObjetoAjax();
+				xhttp.open("POST", 'http://localhost:3030/send', true);
+
+				xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+				var queryString = crea_query_string();
+				xhttp.send(queryString);
+
+			}
 
 		</script>
 	</head>
@@ -31,6 +66,8 @@
 	        <input type="text" name="categoria" id="categoria">
 	      </div>
     </div>
+
+		<button id="enviar" onclick="corre()">Send</button>
 
 	</body>
 </html>

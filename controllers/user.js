@@ -1,9 +1,10 @@
+var path = require('path');
+
 /*
 * Show a user
 */
 module.exports.show = function(req, res){
-  res.status(200).send('Working on it');
-  res.sendFile('respuesta')
+  res.sendFile(path.join(__dirname, '../views', 'admin.html'));
 };
 
 module.exports.foo = function(req, res){

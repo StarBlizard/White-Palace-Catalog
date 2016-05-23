@@ -1,10 +1,10 @@
-var app = require('./services/server').app;
-
+var app             = require('./services/server').app;
 /*
  * Controllers
  * */
+var model           = require('./model/sql.js')
 var indexController = require("./controllers/index")
-var userController = require("./controllers/user")
+var userController  = require("./controllers/user")
 
 /*
  * Routes definition
@@ -15,7 +15,7 @@ app.get('/', indexController.index);
 app.get('/home', indexController.home);
 
 // Users
-app.get('/enter_products',  userController.show);
+app.get('/admin',  userController.show);
 
-// Example
-app.post('/foo', userController.foo);
+// request
+app.post('/send', model.send);
