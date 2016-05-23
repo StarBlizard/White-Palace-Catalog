@@ -34,7 +34,7 @@
 
 			function corre(){
 				xhttp = creaObjetoAjax();
-				xhttp.open("POST", 'http://localhost:3030/send', true);
+				xhttp.open("POST", '/send', true);
 
 				xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 				var queryString = crea_query_string();
