@@ -6,10 +6,12 @@ a departmental store.
 
 Server Side technologies:
 
-* Nodejs v4.2.4
-* Express 2.14.12
+* Nodejs  v4.2
+* Express v2.14
+* Knex    
+* Bookshelf
 
 Client Side technologies:
 
-* JQuery v1.11.3
-* Underscore PV 1.8.3
+* JQuery     v1.11
+* Underscore v1.8

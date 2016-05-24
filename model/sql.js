@@ -13,4 +13,5 @@ var User = bookshelf.Model.extend({
 
 module.exports.send = function(req, res){
   console.log('Body: ', req.body);
+
 };

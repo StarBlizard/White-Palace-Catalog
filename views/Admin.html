@@ -23,10 +23,10 @@
 				var departamento = document.getElementById('departamento');
 				var categoria    = document.getElementById('categoria');
 
-				return "producto="     + encodeURIComponent(producto.value)     +
-							 "precio=" 	     + encodeURIComponent(precio.value) 	    +
-							 "departamento=" + encodeURIComponent(departamento.value)	+
-							 "categoria="    + encodeURIComponent(categoria.value)	  +
+				return "&producto="     + encodeURIComponent(producto.value)     +
+							 "&precio=" 	     + encodeURIComponent(precio.value) 	    +
+							 "&departamento=" + encodeURIComponent(departamento.value)	+
+							 "&categoria="    + encodeURIComponent(categoria.value)	  +
 							 "&nocache="     + Math.random();
 			}
 
