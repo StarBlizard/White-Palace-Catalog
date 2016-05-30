@@ -20,14 +20,20 @@
 			function crea_query_string() {
 				var producto     = document.getElementById("producto");
 				var precio       = document.getElementById("precio");
+				var descripcion  = document.getElementById("descripcion");
+				var minStock     = document.getElementById("minStock");
 				var departamento = document.getElementById('departamento');
 				var categoria    = document.getElementById('categoria');
+				var demora       = document.getElementById('demora')
 
 				return "&producto="     + encodeURIComponent(producto.value)     +
-							 "&precio=" 	     + encodeURIComponent(precio.value) 	    +
-							 "&departamento=" + encodeURIComponent(departamento.value)	+
-							 "&categoria="    + encodeURIComponent(categoria.value)	  +
-							 "&nocache="     + Math.random();
+							 "&precio=" 	    + encodeURIComponent(precio.value) 	     +
+							 "&descripcion="  + encodeURIComponent(descripcion.value)  +
+							 "&minStock="     + encodeURIComponent(minStock.value)     +
+							 "&departamento=" + encodeURIComponent(departamento.value) +
+							 "&categoria="    + encodeURIComponent(categoria.value)	   +
+							 "&demora="       + encodeURIComponent(demora.value)	     +
+							 "&nocache="      + Math.random();
 			}
 
 
@@ -57,14 +63,30 @@
 	        Precio:
 	        <input type="text" name="precio" id="precio">
 	      </div>
+				<div>
+	        Descripcion:
+	        <input type="text" name="descripcion" id="descripcion">
+	      </div>
 	      <div>
 	        Departamento:
 	        <input type="text" name="departamento" id="departamento">
+	      </div>
+				<div>
+	        Stock minimo:
+	        <input type="text" name="minStock" id="minStock">
 	      </div>
 	      <div>
 	        Categoria:
 	        <input type="text" name="categoria" id="categoria">
 	      </div>
+				<div>
+					demora:
+					<input type="text" id="demora"/>
+				</div>
+				<div>
+					Imagen:
+					<input type="file"/>
+				</div>
     </div>
 
 		<button id="enviar" onclick="corre()">Send</button>

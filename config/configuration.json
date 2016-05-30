@@ -8,5 +8,10 @@
     "password" : "centauri",
     "database" : "whitepalace",
     "charset"  : "utf8"
+  },
+
+  "pool" : {
+    "min" : 0,
+    "max" : 9
   }
 }
