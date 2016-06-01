@@ -1,8 +1,17 @@
 {
+  "author"      : "Yeltzin <yillanes@ucol.mx>",
   "name"        : "whitepalace",
   "version"     : "1.0.0",
   "description" : "This is a web page made using node js ",
   "main"        : "app.js",
+
+  "contributors" : [
+    {
+      "name"  : "Narciso Guillen",
+      "email" : "guillen.narciso@gmail.com"
+    }
+  ],
+
   "dependencies": {
     "bcrypt-nodejs"        : "^0.0.3",
     "bookshelf"            : "^0.9.5",
@@ -17,17 +26,25 @@
     "npm"                  : "^2.14.12",
     "passport"             : "^0.3.2",
     "passport-local"       : "^1.0.0",
-    "underscore"           : "^1.8.3"
+    "underscore"           : "^1.8.3",
+    "nconf"                : "0.8.x"
   },
+
   "devDependencies" : {},
+
   "scripts": {
-    "test" : "node app.js",
     "start": "node app.js"
   },
+
+  "engines" : {
+    "node" : "4.2.4"
+  },
+
   "repository": {
     "type": "git",
     "url" : "git+https://github.com/StarBlizard/White-Palace-Catalog.git"
   },
+
   "keywords": [
     "web",
     "catalogue",
@@ -36,10 +53,12 @@
     "express",
     "bookshelf"
   ],
-  "author" : "Starblizard",
-  "license": "ISC",
+
+  "license": "MIT",
+
   "bugs"   : {
     "url": "https://github.com/StarBlizard/White-Palace-Catalog/issues"
   },
+
   "homepage": "https://github.com/StarBlizard/White-Palace-Catalog#readme"
 }
