@@ -4,6 +4,28 @@ White Palace Catalog is a school and personal project to improve my web
 developing skills. The function of this is show a list of products from
 a departmental store.
 
+## Install
+
+     npm install
+
+## Start
+
+     npm start
+
+## Database
+
+Simple commands to simplify database actions
+
+### Create a new migration
+
+     knex migrate:make <Migration name>
+
+### Run latest migrations
+
+     knex migrate:latest
+
+## Miselaneous
+
 Server Side technologies:
 
 * Nodejs     v4.2

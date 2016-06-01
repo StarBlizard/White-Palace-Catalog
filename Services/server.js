@@ -1,14 +1,19 @@
-var Server        = require('http').Server;
-var express       = require('express');
-var bodyParser    = require('body-parser');
-var configuration = require('../config/configuration');
-var path          = require('path');
+'use strict';
+
+/*
+ * Local Variables
+ * */
+let nconf      = require('nconf');
+let Server     = require('http').Server;
+let express    = require('express');
+let bodyParser = require('body-parser');
+let path       = require('path');
 
 module.exports = {
 
   start : function(){
     console.log('Start Server');
-    var PORT = process.env.NODE_PORT || configuration.PORT;
+    var PORT = process.env.NODE_PORT || nconf.get('PORT');
 
     this.server  = new Server();
     this.app     = express(this.server);

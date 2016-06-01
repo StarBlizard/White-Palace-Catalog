@@ -1,56 +1,10 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<title></title>
 		<meta charset="utf-8">
-		<script type="text/javascript">
-			var xhttp
-
-			function creaObjetoAjax () { //Mayoría de navegadores
-				var obj;
-				if (window.XMLHttpRequest) {
-					obj=new XMLHttpRequest();
-					   }
-				else { //para IE 5 y IE 6
-					obj=new ActiveXObject(Microsoft.XMLHTTP);
-					   }
-				return obj;
-			}
-
-			function crea_query_string() {
-				var producto     = document.getElementById("producto");
-				var precio       = document.getElementById("precio");
-				var descripcion  = document.getElementById("descripcion");
-				var minStock     = document.getElementById("minStock");
-				var departamento = document.getElementById('departamento');
-				var categoria    = document.getElementById('categoria');
-				var demora       = document.getElementById('demora')
-
-				return "&producto="     + encodeURIComponent(producto.value)     +
-							 "&precio=" 	    + encodeURIComponent(precio.value) 	     +
-							 "&descripcion="  + encodeURIComponent(descripcion.value)  +
-							 "&minStock="     + encodeURIComponent(minStock.value)     +
-							 "&departamento=" + encodeURIComponent(departamento.value) +
-							 "&categoria="    + encodeURIComponent(categoria.value)	   +
-							 "&demora="       + encodeURIComponent(demora.value)	     +
-							 "&nocache="      + Math.random();
-			}
-
-
-
-			function corre(){
-				xhttp = creaObjetoAjax();
-				xhttp.open("POST", '/send', true);
-
-				xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-				var queryString = crea_query_string();
-				xhttp.send(queryString);
-
-			}
-
-		</script>
 	</head>
-
 
 	<body>
     Introduce los productos que quieras agregar a la base de datos
