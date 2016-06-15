@@ -5,14 +5,17 @@ var app = require('./services/server').app;
  * */
 var indexController = require("./controllers/index")
 var userController  = require("./controllers/user")
+var adminController  = require("./controllers/admin")
 
 /*
  * Routes definition
  * */
 
-// Home
+// Index
 app.get('/', indexController.index);
-app.get('/home', indexController.home);
 
 // Users
-app.get('/admin',  userController.show);
+app.get('/home', userController.home);
+
+//Admin
+app.get('/admin', adminController.show);

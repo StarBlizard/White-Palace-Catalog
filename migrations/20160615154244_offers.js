@@ -1,7 +1,8 @@
+
 exports.up = function(knex, Promise) {
-  return knex.schema.createTableIfNotExists('users', function (table) {
+  return knex.schema.createTableIfNotExists('offers', function (table) {
     table.increments();
-    table.text('first_name');
+    table.text('');
     table.text('last_name');
     table.text('email');
     table.text('password');
@@ -10,5 +11,5 @@ exports.up = function(knex, Promise) {
 };
 
 exports.down = function(knex, Promise) {
-  return knex.schema.dropTable('users');
+  return knex.schema.dropTable('offers');
 };
