@@ -2,10 +2,10 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTableIfNotExists('offers', function (table) {
     table.increments();
-    table.text('');
-    table.text('last_name');
-    table.text('email');
-    table.text('password');
+    table.integer('product');
+    table.integer('price');
+    table.integer('quantity');
+    table.integer('provider');
     table.timestamps();
   });
 };
