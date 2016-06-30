@@ -4,7 +4,6 @@ exports.up = function(knex, Promise) {
     table.increments();
     table.boolean('delivered');
     table.boolean('paid');
-    table.integer('deposit');
     table.timestamps();
   });
 };

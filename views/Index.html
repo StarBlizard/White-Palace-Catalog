@@ -15,8 +15,23 @@
 
     <link rel="stylesheet" type="text/css" href="./CSS/Estilos.css">
 
-
+    <script type="text/javascript" src="./JS/jquery-3.0.0.min.js"></script>
     <script type="text/javascript">
+
+      var regData = {
+        first_name : $("#first_name").value,
+        last_name  : $("#last_name").value,
+        email      : $("#email").value,
+        password   : $("#password").value,
+        rep_pass   : $("#rep_pass").value,
+        last_buy   : $("#last_buy").value,
+        home_num   : $("#home_num").value,
+        street     : $("#street").value,
+        suburb     : $("#suburb").value,
+        phone      : $("#phone").value,
+        age        : $("#age").value,
+        gender     : $("#gender").value
+      }
 
     </script>
 
@@ -80,7 +95,7 @@
     		</div>
     	</div>
 
-
+    </div>
     <!-- _________________________________________________________________________________________________________________________________________ -->
 
  <!--   <ul class="pagination-plain" id="pg">    Paginacion
@@ -97,7 +112,7 @@
 
         <!-- ______________________________________________________________________________________________________________________________________ -->
 
-		<div id="accessFade" class="overlay"></div>  <!-- Ventana modal para "Acceder" -->
+		<div id="accessFade" class="overlay" onclick="accessOcultar()"></div>  <!-- Ventana modal para "Acceder" -->
 
         <div id="accessLight" class="acModal">
   				  <div style="text-align: center; margin:2px; margin-bottom: 65px;">
@@ -142,60 +157,99 @@
 
 
 
-		<div id="regFade" class="overlay"></div>		<!-- Ventana modal para "registrarse" -->
+		<div id="regFade" class="overlay" onclick="regOcultar()"></div>		<!-- Ventana modal para "registrarse" -->
   			<div id="regLight" class="regModal">
-				<div style="text-align: center; margin:10px; margin-bottom: 30px;">
-  						<h4>Registrarse</h4>
-  				</div>
-  				<div style="float: left; margin:5px; margin-left:80px; margin-right:160px; margin-bottom:40px">
-  					<div style="margin:5px; margin-bottom: 10px;">
-  						<div>
-  							Nombre de usuario:
-  						</div>
-  						<input type="text">
-  					</div>
-
-  					<div style="margin: 5px; margin-bottom: 10px;">
-  						<div>
-  							Contraseña:
-  						</div>
-  						<input type="text">
-  					</div>
-  					<div style="margin: 5px; margin-bottom: 10px;">
-  						<div>
-  							Repetir Contraseña:
-  						</div>
-  						<input type="text">
-  					</div>
-  				</div>
-
-  			 	<div style="float: left; margin:5px; margin-left:80px; margin-right:50px; margin-bottom:40px">
-  					<div style="margin:5px; margin-bottom: 10px;">
-  						<div>
-  							Correo electronico:
-  						</div>
-  						<input type="text">
-  					</div>
-
-  					<div style="margin: 5px; margin-bottom: 10px;">
-  						<div>
-  							Repetir correo electronico:
-  						</div>
-  						<input type="text">
-  					</div>
-
-  					<div style="margin: 5px; margin-bottom: 10px;">
-  						<div>
-  							Pais:
-  						</div>
-  						<input type="text">
-  					</div>
-  			 	</div>
-  				<div style="text-align: center">
-  					<button type="button" class="btn btn-success">Registrarse</button>
-					<button type="button" class="btn btn-link" onclick="regOcultar()">Salir</button>
-				</div>
+				<div style="text-align: center; margin:1%; margin-bottom: 5%;">
+  				<h4>Registrarse</h4>
   			</div>
+
+        <div style=" width:48%; margin-bottom:5%; float: left">
+            <div  class="user-rg-data">
+              <div>
+                Nombre(s):
+              </div>
+              <div><input type="text" placeholder="Nombre" style="whidth:10%" class="form-control" id="first_name"/></div>
+            </div>
+
+            <div class="user-rg-data">
+              <div>
+                Apellido(s):
+              </div>
+              <div><input type="text" placeholder="Apellido" style="whidth:10%" class="form-control" id="last_name"/></div>
+            </div>
+
+            <div class="user-rg-data">
+              <div>
+                Contraseña:
+              </div>
+              <div><input type="text" placeholder="Contraseña" style="whidth:10%" class="form-control" id="password"/></div>
+            </div>
+
+            <div class="user-rg-data">
+              <div>
+                Repetir contraseña:
+              </div>
+              <div><input type="text" placeholder="Repetir" style="whidth:10%" class="form-control" id="rep_pass"/></div>
+            </div>
+
+            <div class="user-rg-data">
+              <div>
+                Edad:
+              </div>
+              <div><input type="text" placeholder="Nombre" style="whidth:10%" class="form-control" id="age"/></div>
+            </div>
+
+            <div class="user-rg-data">
+              <div>
+                Genero:
+              </div>
+              <div><input type="text" placeholder="Hombre/Mujer" style="whidth:10%" class="form-control" id="gender"/></div>
+            </div>
+        </div>
+
+        <div style=" width:48%; margin-bottom:5%; float:right">
+            <div class="user-rg-data">
+              <div>
+                Correo:
+              </div>
+              <div><input type="text" placeholder="Nombre" style="whidth:10%" class="form-control" id="email"/></div>
+            </div>
+
+            <div class="user-rg-data">
+              <div>
+                Numero de casa:
+              </div>
+              <div><input type="text" placeholder="Numero de casa" style="whidth:10%" class="form-control" id="home_num"/></div>
+            </div>
+
+            <div class="user-rg-data">
+              <div>
+                Calle:
+              </div>
+              <div><input type="text" placeholder="Calle" style="whidth:10%" class="form-control" id="street"/></div>
+            </div>
+
+            <div class="user-rg-data">
+              <div>
+                Colonia:
+              </div>
+              <div><input type="text" placeholder="Nombre" style="whidth:10%" class="form-control" id="suburb"/></div>
+            </div>
+
+            <div class="user-rg-data">
+              <div>
+                Telefono:
+              </div>
+              <div><input type="text" placeholder="Telefono" style="whidth:10%" class="form-control" id="phone"/></div>
+            </div>
+
+        </div>
+
+  			<div style="text-align: center; bottom: 5%; left:42%; position: static">
+  				<button type="button" class="btn btn-success" onclick="registra()">Registrarse</button>
+			  	<button type="button" class="btn btn-link" onclick="regOcultar()">Salir</button>
+				</div>
+  		</div>
 
 
   				<!-- ____________________________________________________________________________________________________________________________-->
@@ -208,9 +262,9 @@
   					<img class="imageInt" src="./img/66186003.jpg">
   				</div>
 				<p>Para "<a href="javascript:void(0)" onclick="productOcultar()">cerrar</a></p>
-  			</div>
+  	</div>
 
-  				<!-- ________________________________________________________________________________________________________________________-->
+  				<!-- ________________________________________________________jquery-3.0.0.min.js________________________________________________________________-->
 
     <script src="./Flat-UI-master/dist/js/vendor/jquery.min.js"></script>
     <script src="./Flat-UI-master/dist/js/vendor/video.js"></script>

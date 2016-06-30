@@ -4,14 +4,12 @@ exports.up = function(knex, Promise) {
     table.increments();
     table.text('product');
     table.integer('price');
-    table.integer('category');
     table.text('description');
     table.text('img_path');
     table.integer('stock');
     table.integer('min_stock');
-    table.integer('offer');
     table.timestamps();
-    //    table.integer('delay');
+    table.integer('delay');
   });
 };
 

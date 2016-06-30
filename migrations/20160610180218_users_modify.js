@@ -7,7 +7,6 @@ exports.up = function(knex, Promise) {
     table.integer('phone');
     table.integer('age');
     table.text('gender');
-    table.integer('bank_account').unique();
     table.boolean('premium');
   });
 };
