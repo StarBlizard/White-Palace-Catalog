@@ -5,7 +5,7 @@ var app = require('./services/server').app;
  * */
 var indexController = require("./controllers/index")
 var userController  = require("./controllers/user")
-var adminController  = require("./controllers/admin")
+var adminController = require("./controllers/admin")
 
 /*
  * Routes definition
@@ -13,6 +13,7 @@ var adminController  = require("./controllers/admin")
 
 // Index
 app.get('/', indexController.index);
+app.post('/register', indexController.register)
 
 // Users
 app.get('/home', userController.home);

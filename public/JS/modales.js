@@ -1,4 +1,4 @@
-src="./Flat-UI-master/dist/js/vendor/jquery.min.js"
+
 function accessOcultar(){
     		document.getElementById("accessLight").style.display='none';
     		document.getElementById("accessFade").style.display='none';

@@ -14,27 +14,41 @@
     <link rel="shortcut icon" href="./img/favicon.ico">
 
     <link rel="stylesheet" type="text/css" href="./CSS/Estilos.css">
-
     <script type="text/javascript" src="./JS/jquery-3.0.0.min.js"></script>
-    <script type="text/javascript">
 
-      var regData = {
-        first_name : $("#first_name").value,
-        last_name  : $("#last_name").value,
-        email      : $("#email").value,
-        password   : $("#password").value,
-        rep_pass   : $("#rep_pass").value,
-        last_buy   : $("#last_buy").value,
-        home_num   : $("#home_num").value,
-        street     : $("#street").value,
-        suburb     : $("#suburb").value,
-        phone      : $("#phone").value,
-        age        : $("#age").value,
-        gender     : $("#gender").value
+    <script type="text/javascript">
+      "use strict;"
+
+      function cucu(){
+        console.log("cucuuuu!");
+        let regData = {
+          first_name : $("#first_name").val(),
+          last_name  : $("#last_name").val(),
+          email      : $("#email").val(),
+          password   : $("#password").val(),
+          rep_pass   : $("#rep_pass").val(),
+          last_buy   : $("#last_buy").val(),
+          home_num   : $("#home_num").val(),
+          street     : $("#street").val(),
+          suburb     : $("#suburb").val(),
+          phone      : $("#phone").val(),
+          age        : $("#age").val(),
+          gender     : $("#gender").val()
+        };
+
+        $.ajax({
+          type: "POST",
+          url: "/register",
+          data: regData,
+          cache: false,
+          success: function(data, status, xhr) {
+            console.log(this.data)
+            console.log(status, "The request has be");
+          }
+        })
       }
 
     </script>
-
   </head>
   <body>
 
@@ -131,7 +145,7 @@
   						  Contraseña:
   					  </div>
 
-             <input type="text" style="width:100%" name="password" id="password" placeholder="password" required="true">
+             <input type="text" style="width:100%" name="password" id="passwordAcc" placeholder="password" required="true">
 
             </div>
 
@@ -159,23 +173,23 @@
 
 		<div id="regFade" class="overlay" onclick="regOcultar()"></div>		<!-- Ventana modal para "registrarse" -->
   			<div id="regLight" class="regModal">
-				<div style="text-align: center; margin:1%; margin-bottom: 5%;">
-  				<h4>Registrarse</h4>
-  			</div>
+				  <div style="text-align: center; margin:1%; margin-bottom: 5%;">
+  				  <h4>Registrarse</h4>
+  			  </div>
 
         <div style=" width:48%; margin-bottom:5%; float: left">
             <div  class="user-rg-data">
               <div>
                 Nombre(s):
               </div>
-              <div><input type="text" placeholder="Nombre" style="whidth:10%" class="form-control" id="first_name"/></div>
+              <div><input type="text" placeholder="Red" style="whidth:10%" class="form-control" id="first_name"/></div>
             </div>
 
             <div class="user-rg-data">
               <div>
                 Apellido(s):
               </div>
-              <div><input type="text" placeholder="Apellido" style="whidth:10%" class="form-control" id="last_name"/></div>
+              <div><input type="text" placeholder="Paleta" style="whidth:10%" class="form-control" id="last_name"/></div>
             </div>
 
             <div class="user-rg-data">
@@ -196,14 +210,14 @@
               <div>
                 Edad:
               </div>
-              <div><input type="text" placeholder="Nombre" style="whidth:10%" class="form-control" id="age"/></div>
+              <div><input type="text" placeholder="18" style="whidth:10%" class="form-control" id="age"/></div>
             </div>
 
             <div class="user-rg-data">
               <div>
                 Genero:
               </div>
-              <div><input type="text" placeholder="Hombre/Mujer" style="whidth:10%" class="form-control" id="gender"/></div>
+              <div><input type="text" placeholder="H/M" style="whidth:10%" class="form-control" id="gender"/></div>
             </div>
         </div>
 
@@ -212,41 +226,41 @@
               <div>
                 Correo:
               </div>
-              <div><input type="text" placeholder="Nombre" style="whidth:10%" class="form-control" id="email"/></div>
+              <div><input type="text" placeholder="Nombre" style="whidth:10%" class="form-control" id="email" placeholder="paleta@....com"/></div>
             </div>
 
             <div class="user-rg-data">
               <div>
                 Numero de casa:
               </div>
-              <div><input type="text" placeholder="Numero de casa" style="whidth:10%" class="form-control" id="home_num"/></div>
+              <div><input type="text" placeholder="Numero de casa" style="whidth:10%" class="form-control" id="home_num" placeholder="01"/></div>
             </div>
 
             <div class="user-rg-data">
               <div>
                 Calle:
               </div>
-              <div><input type="text" placeholder="Calle" style="whidth:10%" class="form-control" id="street"/></div>
+              <div><input type="text" placeholder="Calle" style="whidth:10%" class="form-control" id="street" placeholder="Calle Victoria"/></div>
             </div>
 
             <div class="user-rg-data">
               <div>
                 Colonia:
               </div>
-              <div><input type="text" placeholder="Nombre" style="whidth:10%" class="form-control" id="suburb"/></div>
+              <div><input type="text" placeholder="Nombre" style="whidth:10%" class="form-control" id="suburb" placeholder="Meseta Añil"/></div>
             </div>
 
             <div class="user-rg-data">
               <div>
-                Telefono:
+                Telefono (lada, numero):
               </div>
-              <div><input type="text" placeholder="Telefono" style="whidth:10%" class="form-control" id="phone"/></div>
+              <div><input type="text" placeholder="Telefono" style="whidth:10%" class="form-control" id="phone" placeholder="01,3121310184"/></div>
             </div>
 
         </div>
 
   			<div style="text-align: center; bottom: 5%; left:42%; position: static">
-  				<button type="button" class="btn btn-success" onclick="registra()">Registrarse</button>
+  				<button type="button" class="btn btn-success" id="register" onclick="cucu()">Registrarse</button>
 			  	<button type="button" class="btn btn-link" onclick="regOcultar()">Salir</button>
 				</div>
   		</div>
