@@ -1,11 +1,15 @@
-var app = require('./services/server').app;
+'use strict';
+
+let app      = require('./services/server').app;
+let passport = require('./services/passport').passport;
 
 /*
  * Controllers
  * */
-var indexController = require("./controllers/index")
-var userController  = require("./controllers/user")
-var adminController = require("./controllers/admin")
+let indexController   = require("./controllers/index")
+let sessionController = require("./controllers/session")
+let userController    = require("./controllers/user")
+let adminController   = require("./controllers/admin")
 
 /*
  * Routes definition
@@ -14,6 +18,8 @@ var adminController = require("./controllers/admin")
 // Index
 app.get('/', indexController.index);
 app.post('/register', indexController.register)
+
+app.post('/login', passport.authenticate('local'),  sessionController.login);
 
 // Users
 app.get('/home', userController.home);
