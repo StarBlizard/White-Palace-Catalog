@@ -1,6 +1,6 @@
 'use strict';
-
 let db = require('../services/database').db
+
 
 var user = db.Model.extend({
   tableName  : 'users',
@@ -12,11 +12,13 @@ var user = db.Model.extend({
   home_num   : 0,
   street     : "",
   suburb     : "",
+  lada       : 0,
   phone      : 0,
   age        : 0,
   gender     : '',
-  premium    : false
+  premium    : false,
+  img_path   : "../public/img/profile/usuario.jpeg"
 })
 
 // Export User model
-module.exports = user
+module.exports.user = user

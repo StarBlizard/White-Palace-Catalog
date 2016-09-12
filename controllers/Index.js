@@ -1,6 +1,6 @@
-var _ = require('underscore');
+var User = require('../model/user.js').user;
 
-/*
+ /*
 * Main page
 */
 
@@ -12,7 +12,6 @@ module.exports.index = function(req, res){
 
 module.exports.register = function(req, res){
   var data = req.body;
-  var User =  require('../model/user.js');
 
   new User({
     first_name : data.first_name,
@@ -23,13 +22,15 @@ module.exports.register = function(req, res){
     home_num   : data.home_num,
     street     : data.street,
     suburb     : data.suburb,
-    lada       : data.phone.slice(',')[0],
-    phoneNum   : data.phone.slice(',')[1],
+    lada       : data.lada,
+    phoneNum   : data.phone,
     age        : data.age,
     gender     : data.gender,
-    premium    : false
-  }).save().then(console.log("yay!"))
+    premium    : false,
+    img_path   : "../public/img/profile/usuario.jpeg"
+  }).save().then(function(){
+    res.redirect(300, '/home')
+  })
 
-
-  return res.status(200).json({message : 'Working on it'});
+  return res.redirect(300, '/home');
 };

@@ -17,10 +17,11 @@
     <script type="text/javascript" src="./JS/jquery-3.0.0.min.js"></script>
 
     <script type="text/javascript">
-      "use strict;"
 
-      function cucu(){
-        console.log("cucuuuu!");
+      "use strict;"
+      function register(){
+
+
         let regData = {
           first_name : $("#first_name").val(),
           last_name  : $("#last_name").val(),
@@ -31,22 +32,58 @@
           home_num   : $("#home_num").val(),
           street     : $("#street").val(),
           suburb     : $("#suburb").val(),
+          lada       : $("#lada").val(),
           phone      : $("#phone").val(),
           age        : $("#age").val(),
           gender     : $("#gender").val()
         };
 
-        $.ajax({
-          type: "POST",
-          url: "/register",
-          data: regData,
-          cache: false,
-          success: function(data, status, xhr) {
-            console.log(this.data)
-            console.log(status, "The request has be");
+        if(regData.password === regData.rep_pass){
+          if(regData.gender == 'H' || regData.gender == 'M'){
+            if(regData.phone.length == 7){
+              $.ajax({
+                type: "POST",
+                url: "/register",
+                data: regData,
+                cache: false,
+                success: function(data, status, xhr) {
+                  console.log(xhr)
+                  console.log(status, "The request has be");
+                }
+              })
+            }else {
+                console.log("Numero inválido");
+            }
+          }else{
+            console.log("Género Inválido: H/M");
           }
-        })
+        }else{
+          console.log('Fallo en la confirmacion de la contraseña: ', regData.password + " != " + regData.rep_pass);
+        }
       }
+
+      $(function(){
+        var $username = $('#emailAcc');
+        var $password = $('#passwordAcc');
+        var $login    = $('.js-login');
+
+        $login.click(function(){
+          var credentials = {
+            username : $username.val(),
+            password : $password.val()
+        };
+
+        var request = $.ajax({
+          url    : '/login',
+          method : 'POST',
+          data   : credentials,
+          success: function(data, status, xhr) {
+            window.location.replace(window.location + 'home')
+          }
+        });
+      });
+
+    });
 
     </script>
   </head>
@@ -135,9 +172,9 @@
 
   				  <div style="margin:5px; margin-bottom: 20px;">
   				  	<div>
-  				  		Usuario:
+  				  		Correo Electronico:
   				  	</div>
-  				  	<input type="text"  style="width:100%" name="username" id="username" placeholder="username" required="true">
+  				  	<input type="text"  style="width:100%" id="emailAcc" placeholder="username" required="true">
   				  </div>
 
   			 	 <div style="margin: 5px; margin-bottom: 30px;">
@@ -145,7 +182,7 @@
   						  Contraseña:
   					  </div>
 
-             <input type="text" style="width:100%" name="password" id="passwordAcc" placeholder="password" required="true">
+             <input type="password" style="width:100%" id="passwordAcc" placeholder="password" required="true">
 
             </div>
 
@@ -156,7 +193,7 @@
             </label>
 
   				  <div style="text-align: center">
-  					  <a href="/home"><button type="button" hr="/home" class="btn btn-success">Acceder</button></a>
+  					  <button type="button" class="js-login" >Acceder</button>
 					    <button type="button" class="btn btn-link" onclick="accessOcultar()">Salir</button>
 				    </div>
   	</div>
@@ -196,21 +233,41 @@
               <div>
                 Contraseña:
               </div>
-              <div><input type="text" placeholder="Contraseña" style="whidth:10%" class="form-control" id="password"/></div>
+              <div><input type="password" placeholder="Contraseña" style="whidth:10%" class="form-control" id="password"/></div>
             </div>
 
             <div class="user-rg-data">
               <div>
                 Repetir contraseña:
               </div>
-              <div><input type="text" placeholder="Repetir" style="whidth:10%" class="form-control" id="rep_pass"/></div>
+              <div><input type="password" placeholder="Repetir" style="whidth:10%" class="form-control" id="rep_pass"/></div>
             </div>
 
-            <div class="user-rg-data">
+            <div class="user-rg-data" style="height:10%">
               <div>
                 Edad:
               </div>
-              <div><input type="text" placeholder="18" style="whidth:10%" class="form-control" id="age"/></div>
+              <div class="btn-group" style="border-radius:10px">
+                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                  18 <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" style="overflow:scroll; border-radius:10px"  role="menu">
+                  <li>19</li>
+                  <li>20</li>
+                  <li>21</li>
+                  <li>22</li>
+                  <li>23</li>
+                  <li>24</li>
+                  <li>25</li>
+                  <li>26</li>
+                  <li>27</li>
+                  <li>28</li>
+                  <li>29</li>
+                  <li>30</li>
+                  <li>31</li>
+                  <li>32</li>
+                </ul>
+              </div>
             </div>
 
             <div class="user-rg-data">
@@ -226,41 +283,42 @@
               <div>
                 Correo:
               </div>
-              <div><input type="text" placeholder="Nombre" style="whidth:10%" class="form-control" id="email" placeholder="paleta@....com"/></div>
+              <div><input type="text" placeholder="Loquesea@...com" style="whidth:10%" class="form-control" id="email" placeholder="paleta@....com"/></div>
             </div>
 
             <div class="user-rg-data">
               <div>
                 Numero de casa:
               </div>
-              <div><input type="text" placeholder="Numero de casa" style="whidth:10%" class="form-control" id="home_num" placeholder="01"/></div>
+              <div><input type="text"  style="whidth:10%" class="form-control" id="home_num" placeholder="01"/></div>
             </div>
 
             <div class="user-rg-data">
               <div>
                 Calle:
               </div>
-              <div><input type="text" placeholder="Calle" style="whidth:10%" class="form-control" id="street" placeholder="Calle Victoria"/></div>
+              <div><input type="text" style="whidth:10%" class="form-control" id="street" placeholder="Calle Victoria"/></div>
             </div>
 
             <div class="user-rg-data">
               <div>
                 Colonia:
               </div>
-              <div><input type="text" placeholder="Nombre" style="whidth:10%" class="form-control" id="suburb" placeholder="Meseta Añil"/></div>
+              <div><input type="text" style="whidth:10%" class="form-control" id="suburb" placeholder="Meseta Añil"/></div>
             </div>
 
             <div class="user-rg-data">
-              <div>
-                Telefono (lada, numero):
+              <div style:"height: 10%">
+                Lada: <div style:"whidth:90%"><input type="text" id="lada" placeholder="Lada"/></div>
+                Telefono de casa: <div style:"whidth:10%"><input type="text" style="whidth:10%" id="phone" placeholder="Numero"/></div>
               </div>
-              <div><input type="text" placeholder="Telefono" style="whidth:10%" class="form-control" id="phone" placeholder="01,3121310184"/></div>
+
             </div>
 
         </div>
 
   			<div style="text-align: center; bottom: 5%; left:42%; position: static">
-  				<button type="button" class="btn btn-success" id="register" onclick="cucu()">Registrarse</button>
+  				<button type="button" class="btn btn-success" id="register" onclick="register()">Registrarse</button>
 			  	<button type="button" class="btn btn-link" onclick="regOcultar()">Salir</button>
 				</div>
   		</div>
