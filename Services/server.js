@@ -3,12 +3,13 @@
 /*
  * Local Variables
  * */
-let nconf      = require('nconf');
-let Server     = require('http').Server;
-let express    = require('express');
-let bodyParser = require('body-parser');
-let path       = require('path');
-let passport   = require('./passport').passport;
+const nconf        = require('nconf');
+const Server       = require('http').Server;
+const express      = require('express');
+const bodyParser   = require('body-parser');
+const path         = require('path');
+const cookieParser = require('cookie-parser');
+const passport     = require('./passport').passport;
 
 module.exports = {
 
@@ -24,7 +25,6 @@ module.exports = {
     this.app.use(bodyParser.json());                         // for parsing application/json
     this.app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
     this.app.use(passport.initialize());
-    this.app.use(passport.session());
 
     // Use custom middleware
     this.app.use(function(req, res, next){

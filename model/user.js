@@ -4,15 +4,13 @@ let db = require('../services/database').db
 
 var user = db.Model.extend({
   tableName  : 'users',
-  first_name : "",
-  last_name  : "",
+  name       : "",
   email      : "",
   password   : "",
   last_buy   : new Date(),
   home_num   : 0,
   street     : "",
   suburb     : "",
-  lada       : 0,
   phone      : 0,
   age        : 0,
   gender     : '',

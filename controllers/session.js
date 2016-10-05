@@ -1,4 +1,20 @@
+var passport = require('../services/passport');
+var model;
+var that;
+
 module.exports.login = function (req, res){
-  console.log('Yaaaaaay!');
-  return res.redirect(301, '/home');
+  model = req;
+  return res.send(model._passport.session.user);
+}
+
+module.exports.check = function (req, res) {
+  if (model) {
+    console.log('sigues logueado papa');
+    return res.status(true).send(model._passport.session.user);
+  }
+}
+
+module.exports.logout = function (req, res) {
+  model.logout();
+  return res.send(true)
 }

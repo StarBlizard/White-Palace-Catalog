@@ -1,0 +1,57 @@
+  #secun{
+    background-color: yellow;
+    position        : relative;
+  }
+
+  #products-container{
+    margin-left  : 20px;
+    float        : left;
+    height       : 500px;
+    width        : auto;
+  }
+
+  .presCon{
+    float            : left;
+    margin           : 10px;
+    background-color : #48C9B0;
+    border-radius    : 10px;
+    width            : 327px;
+   	height           : 220px;
+  }
+
+  .interior{
+    clear    : both;
+    overflow : hidden;
+    margin   : 10px;
+  }
+
+  #pg{
+    clear : both;
+  }
+
+	.imgCont{
+		border-radius    : 10px;
+		background-color : white;
+		text-align       : center;
+		overflow         : hidden;
+		width            :307px;
+		height           :120px;
+	}
+
+  .imageInt{
+	   text-align : center;
+ 		 max-width  : 100%;
+ 	   height     : auto;
+     margin     : 1px;
+	}
+
+	.textoInt{
+	   line-height : 20px;
+		 float       : left;
+		 overflow    : hidden;
+		 margin      : 5px;
+   }
+
+  #contenedor{
+     overflow: hidden;
+  }

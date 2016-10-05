@@ -13,7 +13,6 @@ var passport      = require('../services/passport.js');
      function(email, password, done){
 
        User.forge({ email : email }).fetch().then(function(model){
-         console.log("1");
 
          //if(model){ console.log("error: ", email.NotFoundEror ); return done(email.NotFoundEror) }
 
@@ -21,13 +20,12 @@ var passport      = require('../services/passport.js');
            console.log("Incorrect email: ", email);
            return done(null, false, { message: 'Incorrect email' })
          }
-         
+
          if(model.attributes.password != password){
            console.log("Incorrect password: ", model.attributes.password, "!=", password);
            return done(null, false, { message: 'Incorrect password.' });
          }
-         console.log("finish!");
-         return done(null, email);
+         return done(null, model.attributes);
        })
      })
  }

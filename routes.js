@@ -6,10 +6,10 @@ let passport = require('./services/passport').passport;
 /*
  * Controllers
  * */
-let indexController   = require("./controllers/index")
-let sessionController = require("./controllers/session")
-let userController    = require("./controllers/user")
-let adminController   = require("./controllers/admin")
+let indexController   = require("./controllers/index");
+let sessionController = require("./controllers/session");
+let userController    = require("./controllers/user");
+let productController = require('./controllers/product')
 
 /*
  * Routes definition
@@ -17,12 +17,12 @@ let adminController   = require("./controllers/admin")
 
 // Index
 app.get('/', indexController.index);
-app.post('/register', indexController.register)
+app.post('/', sessionController.check);
+app.post('/logout', sessionController.logout)
+app.post('/register', indexController.register);
 
+// Authenticate
 app.post('/login', passport.authenticate('local'),  sessionController.login);
 
-// Users
-app.get('/home', userController.home);
-
-//Admin
-app.get('/admin', adminController.show);
+// Product update
+app.get('/product-update', productController.update);

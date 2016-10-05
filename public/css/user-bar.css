@@ -1,0 +1,20 @@
+#contenedor{
+}
+
+#main-bar{
+  margin-bottom: 0;
+  border-bottom: 0;
+  padding-bottom: 0;
+  border-radius: 0px;
+}
+
+#user-bar{
+  background-color: green;
+  height          : 500px;
+  width           : 200px;
+  float           : left;
+  display         : none;
+  padding         : 10px;
+  padding-left    : 15px;
+  padding-right   : 15px;
+}

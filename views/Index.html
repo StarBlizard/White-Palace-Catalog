@@ -5,85 +5,19 @@
     <title>White Palace</title>
 
     <!-- Loading Bootstrap -->
-    <link href="/Flat-UI-master/dist/css/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/dist/css/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Loading Flat UI -->
-    <link href="./Flat-UI-master/dist/css/flat-ui.css" rel="stylesheet">
-    <link href="./Flat-UI-master/docs/assets/css/demo.css" rel="stylesheet">
+    <link href="./dist/css/flat-ui.css" rel="stylesheet">
 
     <link rel="shortcut icon" href="./img/favicon.ico">
 
-    <link rel="stylesheet" type="text/css" href="./CSS/Estilos.css">
-    <script type="text/javascript" src="./JS/jquery-3.0.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/modal-windows-stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="./css/user-bar.css">
+    <link rel="stylesheet" type="text/css" href="./css/products-stylesheet.css">
 
     <script type="text/javascript">
 
-      "use strict;"
-      function register(){
-
-
-        let regData = {
-          first_name : $("#first_name").val(),
-          last_name  : $("#last_name").val(),
-          email      : $("#email").val(),
-          password   : $("#password").val(),
-          rep_pass   : $("#rep_pass").val(),
-          last_buy   : $("#last_buy").val(),
-          home_num   : $("#home_num").val(),
-          street     : $("#street").val(),
-          suburb     : $("#suburb").val(),
-          lada       : $("#lada").val(),
-          phone      : $("#phone").val(),
-          age        : $("#age").val(),
-          gender     : $("#gender").val()
-        };
-
-        if(regData.password === regData.rep_pass){
-          if(regData.gender == 'H' || regData.gender == 'M'){
-            if(regData.phone.length == 7){
-              $.ajax({
-                type: "POST",
-                url: "/register",
-                data: regData,
-                cache: false,
-                success: function(data, status, xhr) {
-                  console.log(xhr)
-                  console.log(status, "The request has be");
-                }
-              })
-            }else {
-                console.log("Numero inválido");
-            }
-          }else{
-            console.log("Género Inválido: H/M");
-          }
-        }else{
-          console.log('Fallo en la confirmacion de la contraseña: ', regData.password + " != " + regData.rep_pass);
-        }
-      }
-
-      $(function(){
-        var $username = $('#emailAcc');
-        var $password = $('#passwordAcc');
-        var $login    = $('.js-login');
-
-        $login.click(function(){
-          var credentials = {
-            username : $username.val(),
-            password : $password.val()
-        };
-
-        var request = $.ajax({
-          url    : '/login',
-          method : 'POST',
-          data   : credentials,
-          success: function(data, status, xhr) {
-            window.location.replace(window.location + 'home')
-          }
-        });
-      });
-
-    });
 
     </script>
   </head>
@@ -93,7 +27,7 @@
 
       <!-- _________________________________________________________________________________________________________________________________ -->
 
-      <nav class="navbar navbar-inverse" role="navigation">     <!-- Inicia la barra superior -->
+      <nav class="navbar navbar-inverse" role="navigation" id="main-bar">     <!-- Inicia la barra superior -->
        <div class="navbar-header">
          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
            <span class="sr-only">Toggle navigation</span>
@@ -102,51 +36,56 @@
         </div>
        <div class="collapse navbar-collapse" id="navbar-collapse-01">
          <ul class="nav navbar-nav">
-           <li><a href="#fakelink">Categorias</a></li>
-           <li><a href="#fakelink">Descuentos</a></li>
-           <li><a href="#fakelink">En el carro</a></li>
-           <li><a href="#fakelink">Wish List</a></li>
+           <li id="product-update"><a href="#fakelink">Agregar Productos</a></li>
          </ul>
-         <form class="navbar-form navbar-right" action="#" role="search">
-           <div class="form-group">
+         <div class="navbar-form navbar-right" >
              <div class="input-group">
                <input class="form-control" id="navbarInput-01" type="search" placeholder="Buscar">
                <span class="input-group-btn">
                  <button type="submit" class="btn"><span class="fui-search"></span></button>
                </span>
              </div>
-             <button class="btn btn-default navbar-btn" type="button" onclick="accessMostrar()">Acceder</button>
-             <button class="btn btn-default navbar-btn" type="button" onclick="regMostrar()">Registrarse</button>
-           </div>
-         </form>
+             <button class="btn btn-default navbar-btn" type="button" onclick="accessMostrar()" id="access">Acceder</button>
+             <button class="btn btn-default navbar-btn" type="button" onclick="regMostrar()" id="regis">Registrarse</button>
+             <button class="btn btn-default navbar-btn" type="button" href="javascript:history.go(0)" id="logout" style="display:none">Salir</button>
+         </div>
        </div><!-- /.navbar-collapse -->
     </nav><!-- /navbar -->
 
-    <!-- ____________________________________________________________________________________________________________________________________ -->
+    <!-- ______________________________________________________________________________________________________ -->
 
-    <div id="secun">   <!-- Contenedor de... contenidos -->
+    <div id="secun">
 
-    	<div class="presCon">
-    		<div class="interior">
-    			<div class="imgCont">
- 	    			<a href="#fakelink" onclick="productMostrar()">
- 	    				<img class="imageInt" src="./img/66186003.jpg">
- 	    			</a>
-    			</div>
-    			<div class="textoInt">
-    				<div class="producto">
-    					<strong>Producto: </strong>
-    				</div>
+        <div id='user-bar'><!-- User Bar -->
+          <div class="col-lg-8 col-lg-offset-4">
+              <img id="profile-photo" class="img-responsive" src="/" alt="">
+          </div>
+        </div>
 
-    				<div class="precio">
-    					<strong>Precio: </strong>
-    				</div>
+        <div id="products-container">
+        	<div class="presCon">
+        		<div class="interior">
+        			<div class="imgCont">
+     	    			<a href="#fakelink" onclick="productMostrar()">
+     	    				<img class="imageInt" src="./img/66186003.jpg">
+     	    			</a>
+        			</div>
+        			<div class="textoInt">
+        				<div class="producto">
+        					<strong>Producto: </strong>
+        				</div>
 
-    			</div>
-    		</div>
-    	</div>
+        				<div class="precio">
+        					<strong>Precio: </strong>
+        				</div>
+
+        			</div>
+        		</div>
+        	</div>
+        </div>
 
     </div>
+  </div>
     <!-- _________________________________________________________________________________________________________________________________________ -->
 
  <!--   <ul class="pagination-plain" id="pg">    Paginacion
@@ -193,7 +132,7 @@
             </label>
 
   				  <div style="text-align: center">
-  					  <button type="button" class="js-login" >Acceder</button>
+  					  <button type="button" id="js-login" >Acceder</button>
 					    <button type="button" class="btn btn-link" onclick="accessOcultar()">Salir</button>
 				    </div>
   	</div>
@@ -224,13 +163,6 @@
 
             <div class="user-rg-data">
               <div>
-                Apellido(s):
-              </div>
-              <div><input type="text" placeholder="Paleta" style="whidth:10%" class="form-control" id="last_name"/></div>
-            </div>
-
-            <div class="user-rg-data">
-              <div>
                 Contraseña:
               </div>
               <div><input type="password" placeholder="Contraseña" style="whidth:10%" class="form-control" id="password"/></div>
@@ -242,40 +174,6 @@
               </div>
               <div><input type="password" placeholder="Repetir" style="whidth:10%" class="form-control" id="rep_pass"/></div>
             </div>
-
-            <div class="user-rg-data" style="height:10%">
-              <div>
-                Edad:
-              </div>
-              <div class="btn-group" style="border-radius:10px">
-                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-                  18 <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" style="overflow:scroll; border-radius:10px"  role="menu">
-                  <li>19</li>
-                  <li>20</li>
-                  <li>21</li>
-                  <li>22</li>
-                  <li>23</li>
-                  <li>24</li>
-                  <li>25</li>
-                  <li>26</li>
-                  <li>27</li>
-                  <li>28</li>
-                  <li>29</li>
-                  <li>30</li>
-                  <li>31</li>
-                  <li>32</li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="user-rg-data">
-              <div>
-                Genero:
-              </div>
-              <div><input type="text" placeholder="H/M" style="whidth:10%" class="form-control" id="gender"/></div>
-            </div>
         </div>
 
         <div style=" width:48%; margin-bottom:5%; float:right">
@@ -284,35 +182,6 @@
                 Correo:
               </div>
               <div><input type="text" placeholder="Loquesea@...com" style="whidth:10%" class="form-control" id="email" placeholder="paleta@....com"/></div>
-            </div>
-
-            <div class="user-rg-data">
-              <div>
-                Numero de casa:
-              </div>
-              <div><input type="text"  style="whidth:10%" class="form-control" id="home_num" placeholder="01"/></div>
-            </div>
-
-            <div class="user-rg-data">
-              <div>
-                Calle:
-              </div>
-              <div><input type="text" style="whidth:10%" class="form-control" id="street" placeholder="Calle Victoria"/></div>
-            </div>
-
-            <div class="user-rg-data">
-              <div>
-                Colonia:
-              </div>
-              <div><input type="text" style="whidth:10%" class="form-control" id="suburb" placeholder="Meseta Añil"/></div>
-            </div>
-
-            <div class="user-rg-data">
-              <div style:"height: 10%">
-                Lada: <div style:"whidth:90%"><input type="text" id="lada" placeholder="Lada"/></div>
-                Telefono de casa: <div style:"whidth:10%"><input type="text" style="whidth:10%" id="phone" placeholder="Numero"/></div>
-              </div>
-
             </div>
 
         </div>
@@ -336,13 +205,60 @@
 				<p>Para "<a href="javascript:void(0)" onclick="productOcultar()">cerrar</a></p>
   	</div>
 
+    <!-- ______________________________________________________________________________________________________________________________________ -->
+
+<div id="pUpdateFade" class="overlay" onclick="pUpdateOcultar()"></div>  <!-- Product update modal window -->
+
+    <div id="pUpdateLight" class="upModal">
+        <div style="text-align: center; margin:2px; margin-bottom: 65px;">
+          <h4>Subir un Producto</h4>
+        </div>
+
+        <div>
+           <div>
+             Foto:
+           </div>
+
+          <input type="file" style="width:100%" id="p-img-file" required="true">
+          <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+            <img class="img-responsive" id="p-img" class=""/>
+          </div>
+
+         </div>
+
+        <div style="margin:5px; margin-bottom: 20px;">
+          <div>
+            Nombre del producto:
+          </div>
+          <input type="text"  style="width:100%" id="pName" required="true">
+        </div>
+
+       <div style="margin: 5px; margin-bottom: 30px;">
+          <div>
+            Descripcion:
+          </div>
+
+         <input type="text" style="width:100%" id="pDesc" required="true">
+
+        </div>
+
+
+        <div style="text-align: center">
+          <button type="button" id="p-upload" >Subir</button>
+          <button type="button" class="btn btn-link" onclick="pUpdateOcultar()">Salir</button>
+        </div>
+</div>
   				<!-- ________________________________________________________jquery-3.0.0.min.js________________________________________________________________-->
 
-    <script src="./Flat-UI-master/dist/js/vendor/jquery.min.js"></script>
-    <script src="./Flat-UI-master/dist/js/vendor/video.js"></script>
-    <script src="./Flat-UI-master/dist/js/flat-ui.min.js"></script>
-    <script src="./Flat-UI-master/docs/assets/js/application.js"></script>
-    <script type="text/javascript" src="./Flat-UI-master/MooTools-Core-1.6.0.js"></script>
-    <script type="text/javascript" src="./JS/modales.js"></script>
+    <script src="https://unpkg.com/react@15.3.2/dist/react.min.js"></script>
+    <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.min.js"></script>
+    <script src="./dist/js/vendor/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/session-check.js"></script>
+    <script type="text/javascript" src="./js/ajax-logout.js"></script>
+    <script type="text/javascript" src="./js/ajax-login.js"></script>
+    <script type="text/javascript" src="./js/ajax-register.js"></script>
+    <script type="text/javascript" src="./js/ajax-product-update.js"></script>
+    <script src="./dist/js/flat-ui.min.js"></script>
+    <script type="text/javascript" src="./JS/modal-windows.js"></script>
   </body>
 </html>
