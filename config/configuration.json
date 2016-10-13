@@ -10,6 +10,9 @@
       "database" : "whitepalace",
       "charset"  : "utf8"
     }
-
+  },
+  "parse":{
+    "body-parser#json"       : {"params": {"limit":"50mb"}},
+    "body-parser#urlencoded" : {"params": {"limit":"50mb","extended":true}}
   }
 }

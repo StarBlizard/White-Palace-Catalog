@@ -4,6 +4,7 @@ $(function(){
   var $pName      = $('#pName');
   var $pDesc      = $('#pDesc');
   var $pUpdateBut = $('#p-upload');
+  var $pPrice     = $('#pPrice');
 
   var $pUpdate     = $('#product-update');
   var $pImgElement = $('#p-img-file');
@@ -25,19 +26,20 @@ $(function(){
   });
 
   $pUpdateBut.click(function(){
-    var formData = new FormData();
-    formData.append('name', $pName.val());
-    formData.append('desc', $pDesc.val());
-    //formData.append('img', $pImgFile);
-    console.log(formData);
-
-    xhr.open('GET', '/product-update', true);
-    xhr.responseType = 'text';
-    xhr.onload = function(e){
-      xhr.send('Que esh eshto?');
-      if(this.status == 200){
-        console.log('conectado apá', e);
-      }
+    var data = {
+      name  : $pName.val(),
+      img   : $pImgFile,
+      desc  : $pDesc.val(),
+      price : $pPrice.val()
     }
+
+    $.ajax({
+      url     : '/product-update',
+      method  : 'POST',
+      data    : data,
+      success : function(data, status, xhr){
+        pUpdateOcultar();
+      }
+    });
   })
 });

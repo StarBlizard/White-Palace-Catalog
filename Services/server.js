@@ -24,6 +24,8 @@ module.exports = {
 
     this.app.use(bodyParser.json());                         // for parsing application/json
     this.app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+    bodyParser.json(nconf.get('parse'));
+
     this.app.use(passport.initialize());
 
     // Use custom middleware

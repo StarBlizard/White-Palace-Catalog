@@ -25,4 +25,4 @@ app.post('/register', indexController.register);
 app.post('/login', passport.authenticate('local'),  sessionController.login);
 
 // Product update
-app.get('/product-update', productController.update);
+app.post('/product-update', productController.update);

@@ -1,6 +1,5 @@
 var passport = require('../services/passport');
 var model;
-var that;
 
 module.exports.login = function (req, res){
   model = req;

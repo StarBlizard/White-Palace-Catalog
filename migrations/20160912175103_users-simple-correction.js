@@ -8,8 +8,10 @@ exports.up = function(knex, Promise) {
 };
 
 exports.down = function(knex, Promise) {
-  table.renameColumn('name', 'first_name');
-  table.text('last_name');
-  table.integer('lada');
-  table.integer('phoneNum');
+  return knex.schema.table('users', function (table) {
+    table.renameColumn('name', 'first_name');
+    table.text('last_name');
+    table.integer('lada');
+    table.integer('phoneNum');
+  });
 };
