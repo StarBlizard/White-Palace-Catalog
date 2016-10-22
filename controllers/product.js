@@ -14,7 +14,7 @@ module.exports.upload = function(req, res){
     var stream = fs.createWriteStream('./public/img/products/'+timestamp+'_'+filename);
     file.pipe(stream);
   });
-  
+
   busboy.on('finish', function(){
     return  res.status(201).send('OK');
   });
