@@ -12,7 +12,7 @@
     }
   },
   "parse":{
-    "body-parser#json"       : {"params": {"limit":"50mb"}},
-    "body-parser#urlencoded" : {"params": {"limit":"50mb","extended":true}}
+    "json"       : {"params": {"limit":"50mb"}},
+    "urlencoded" : {"params": {"limit":"50mb","extended":true}}
   }
 }

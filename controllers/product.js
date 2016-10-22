@@ -1,19 +1,24 @@
+var fs = require('fs');
 var Product = require('../model/products.js').product;
-var productId;
+var Busboy = require('busboy');
 
-module.exports.update = function(req, res){
-  console.log(req.body);
-  /* Here runs a function which decodes the img and save it in './img/products/' with an name
-  new Product({
-    tableName   : 'products',
-    product     : req.name,
-    price       : req.price,
-    description : req.description,
-    img_path    : req.body.img,     //here goes the img saved route
-    category    : false
-  }).save().then(function(){
-    res.send('OK');
-  })
-  */
-  res.send('Working on it');
+module.exports.upload = function(req, res){
+  var timestamp = Date.now();
+  var busboy = new Busboy({headers: req.headers});
+  busboy.on('field', function(key, value){
+    console.log(key, value);
+  });
+  busboy.on('file', function(fieldname, file, filename){
+    var stream = fs.createWriteStream('./public/img/products/'+timestamp+'_'+filename);
+    file.pipe(stream);
+  });
+  busboy.on('finish', function(){
+    return  res.status(201).send('OK');
+  });
+  req.pipe(busboy);
 };
+
+module.exports.download = function(req, res){
+//  fs.createReadStream('./public/img/products/pepito.png').pipe(res);
+res.download('./public/img/products/pepito.png');
+}

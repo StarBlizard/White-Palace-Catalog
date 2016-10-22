@@ -1,5 +1,4 @@
 $(function(){
-  var xhr = new XMLHttpRequest();
 
   var $pName      = $('#pName');
   var $pDesc      = $('#pDesc');
@@ -26,20 +25,13 @@ $(function(){
   });
 
   $pUpdateBut.click(function(){
-    var data = {
-      name  : $pName.val(),
-      img   : $pImgFile,
-      desc  : $pDesc.val(),
-      price : $pPrice.val()
-    }
-
-    $.ajax({
-      url     : '/product-update',
-      method  : 'POST',
-      data    : data,
-      success : function(data, status, xhr){
-        pUpdateOcultar();
-      }
-    });
+  var xhr = new XMLHttpRequest();
+  var form = new FormData();
+  var file = $pImgElement[0].files[0];
+  form.append("llave", file);
+  form.append('price', $pPrice.val());
+  form.append('name', $pName.val());
+  xhr.open('POST', '/product-update', true);
+  xhr.send(form);
   })
 });
