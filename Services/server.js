@@ -12,7 +12,6 @@ const cookieParser = require('cookie-parser');
 const passport     = require('./passport').passport;
 const busboy       = require('connect-busboy');
 
-
 module.exports = {
 
   start : function(){
@@ -25,8 +24,8 @@ module.exports = {
     this.app.use(express.static(path.join(__dirname, '../public')))
 
     this.app.use(busboy());
-    this.app.use(bodyParser.json(nconf.get('parse').json.params));                         // for parsing application/json
-    this.app.use(bodyParser.urlencoded(nconf.get('parse').urlencoded.params)); // for parsing application/x-www-form-urlencoded
+    this.app.use(bodyParser.json());                         // for parsing application/json
+    this.app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
     this.app.use(passport.initialize());
     this.app.use(passport.session());
 

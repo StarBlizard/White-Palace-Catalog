@@ -11,6 +11,7 @@ let sessionController = require("./controllers/session");
 let userController    = require("./controllers/user");
 let productController = require('./controllers/product')
 
+
 /*
  * Routes definition
  * */
@@ -20,6 +21,7 @@ app.get('/', indexController.index);
 app.post('/', sessionController.check);
 app.post('/logout', sessionController.logout)
 app.post('/register', indexController.register);
+
 
 // Authenticate
 app.post('/login', passport.authenticate('local'),  sessionController.login);
