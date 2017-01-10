@@ -1,5 +1,3 @@
-var _ = require("underscore");
-
 module.exports = {
   start : function(){
     this.passport = require('passport');
@@ -9,7 +7,6 @@ module.exports = {
   },
 
   serialize : function(model, done){
-    console.log(typeof(done));
     var serializedUser = {
       name : model.name,
       id   : model.id,
@@ -19,7 +16,6 @@ module.exports = {
   },
 
   deserialize : function(user, done){
-    console.log(done);
     console.log("run deserialize");
     return done(null, user);
   }

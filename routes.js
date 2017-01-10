@@ -14,11 +14,10 @@ let productController = require('./controllers/product')
 /*
  * Routes definition
  * */
-
 // Index
 app.get('/', indexController.index);
 app.post('/', sessionController.check);
-app.post('/logout', sessionController.logout)
+app.post('/logout',  sessionController.logout);
 app.post('/register', indexController.register);
 
 // Authenticate

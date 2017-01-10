@@ -15,7 +15,7 @@ var user = db.Model.extend({
   age        : 0,
   gender     : '',
   premium    : false,
-  img_path   : "../public/img/profile/usuario.jpeg"
+  img_path   : "./img/profile/usuario.jpg"
 })
 
 // Export User model

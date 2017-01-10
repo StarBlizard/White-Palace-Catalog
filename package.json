@@ -13,6 +13,7 @@
   "dependencies": {
     "bcrypt-nodejs"         : "0.0.x",
     "body-parser"           : "1.15.x",
+    "busboy"                : "0.2.x",
     "bookshelf"             : "0.9.x",
     "cookie-parser"         : "1.4.x",
     "ejs"                   : "2.4.x",

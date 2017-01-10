@@ -23,12 +23,14 @@ $(function(){
     success: function(data, status, xhr) {
       if (status) {
         accessOcultar();
+        console.log(data["Set-Cookie"]);
+        document.cookie = data["Set-Cookie"];
         $regis.css('display', 'none');
         $access.css('display', 'none');
         $userbar.css('display', 'block');
         $logout.css('display', 'block');
         $pUpdate.css('display', 'block');
-        $pPhoto.attr('src', data.img);
+        $pPhoto.attr('src', data["Set-Cookie"].img);
       }
     }
   });
