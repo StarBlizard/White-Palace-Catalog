@@ -2,7 +2,6 @@
 
 let app        = require('./services/server').app;
 let passport   = require('./services/passport').passport;
-let customMidd = require('./customMiddleware');
 
 /*
  * Controllers
@@ -12,8 +11,6 @@ let sessionController = require("./controllers/session");
 let userController    = require("./controllers/user");
 let productController = require('./controllers/product');
 
-console.log(customMidd);
-
 /*
  * Routes definition
  * */
@@ -21,7 +18,7 @@ console.log(customMidd);
 app.get('/', indexController.index);
 app.post('/', sessionController.check);
 app.post('/logout',  sessionController.logout);
-app.post('/register', customMidd, passport.authenticate('local'), sessionController.registerComplete);
+app.post('/register', sessionController.register);
 
 // Authenticate
 app.post('/login', passport.authenticate('local'),  sessionController.login);

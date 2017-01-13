@@ -9,11 +9,10 @@ var passport      = require('../services/passport.js');
  * */
 
  module.exports = function(){
+   console.log("run locale");
    return new LocalStrategy(
-     function(email, password, done, newUser){
-       console.log("run local, user: ",newUser);
-       if(!newUser){
-         console.log("email: ", email, "password: ", password);
+     function(email, password, done){
+         console.log("logging");
 
          User.forge({ email : email }).fetch().then(function(model){
  
@@ -29,10 +28,7 @@ var passport      = require('../services/passport.js');
              return done(null, false, { message: 'Incorrect password.' });
            }
            return done(null, model.attributes);
-         })
-	}else{
-	 console.log("new User!!!")
-         return done(null, newUser.body);
-        }
-    });
+         });
+	}
+    )
  }

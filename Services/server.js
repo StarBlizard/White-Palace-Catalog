@@ -12,7 +12,6 @@ const bodyParser   = require('body-parser');
 const path         = require('path');
 const passport     = require('./passport').passport;
 const busboy       = require('connect-busboy');
-let registerMidd = require('../customMiddleware.js');
 
 module.exports = {
 
@@ -35,8 +34,6 @@ module.exports = {
     this.app.use(session({ secret: 'nyanya'} ));
 
     this.app.use(passport.initialize());
-
-    this.app.use(registerMidd);
 
     // Use custom middleware
     this.app.use(function(req, res, next){

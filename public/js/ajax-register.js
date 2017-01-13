@@ -5,13 +5,6 @@
         var $password = $('#passwordAcc');
         var $login    = $('#js-login');
 
-        var $pPhoto   = $('#profile-photo');
-        var $regis    = $('#regis');
-        var $access   = $('#access');
-        var $logout   = $('#logout');
-        var $userbar  = $('#user-bar');
-        var $pUpdate  = $('#product-update');
-
         let regData = {
           name       : $("#name").val(),
           email      : $("#email").val(),
@@ -21,22 +14,14 @@
 
         if(regData.password === regData.rep_pass){
               $.ajax({
-                type: "POST",
+                method: "POST",
                 url: "/register",
                 data: regData,
                 cache: false,
                 success: function(data, status, xhr) {
+		  console.log("\ndata: ", data, "\nstatus: ", status, "\nxhr: ", xhr)
+		  location.href = location.href;
 
-                  accessOcultar();
-                  console.log(data["Set-Cookie"]);
-                  document.cookie = data["Set-Cookie"];
-                  console.log("cookie", document.cookie);
-                  $regis.css('display', 'none');
-                  $access.css('display', 'none');
-                  $userbar.css('display', 'block');
-                  $logout.css('display', 'block');
-                  $pUpdate.css('display', 'block');
-                  $pPhoto.attr('src', data["Set-Cookie"].img);
                 }
               })
         }else{
