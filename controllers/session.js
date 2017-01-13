@@ -1,19 +1,24 @@
-var passport = require('../services/passport').passport;
+var local = require('../strategies/local');
 
-function isEmptyJSON(obj){             //Detects if the session object is empty
+function isEmptyJSON(obj){          //Detects if the session object is empty
   for(var i in obj){return false;}
   return true;
 }
+
+module.exports.registerComplete = function(req, res){
+ return res.send('Exito!!!!');
+
+};
+
 
 module.exports.login = function (req, res){
   return res.send({"Set-Cookie": req._passport.session.user});
 }
 
 module.exports.check = function (req, res) {
-  console.log("REEEEEQQQQQQQ", req._passport);
   if (!isEmptyJSON(req._passport.session)) {
     console.log('sigues logueado papa');
-    return res.status(true).send(true);
+    return res.status(true).send({ "Set-Cookie" : req._passport.session.user });
   }
   return res.status(false).send(false);
 }

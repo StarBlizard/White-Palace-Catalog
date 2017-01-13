@@ -8,10 +8,11 @@ var passport      = require('../services/passport.js');
  * User model
  * */
 
- module.exports = function(){
+ module.exports = function(newUser){
+   console.log("run local, user: ",newUser);
    return new LocalStrategy(
-     function(email, password, done, newUser){
-       console.log("run local, user: ",newUser);
+     function(email, password, done){
+       console.log("run localx2");
        if(!newUser){
          console.log("email: ", email, "password: ", password);
 

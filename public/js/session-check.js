@@ -20,7 +20,7 @@
         $userbar.css('display', 'block');
         $logout.css('display', 'block');
         $pUpdate.css('display', 'block');
-        $pPhoto.attr('src', document.cookie.img);
+        $pPhoto.attr('src', data["Set-Cookie"].img);
       }
     }
   })

@@ -1,7 +1,6 @@
-$(function(){
+function login(){
   var $username = $('#emailAcc');
   var $password = $('#passwordAcc');
-  var $login    = $('#js-login');
 
   var $pPhoto   = $('#profile-photo');
   var $regis    = $('#regis');
@@ -10,8 +9,7 @@ $(function(){
   var $userbar  = $('#user-bar');
   var $pUpdate  = $('#product-update');
 
-  $login.click(function(){
-    var credentials = {
+  var credentials = {
       username : $username.val(),
       password : $password.val()
   };
@@ -34,6 +32,4 @@ $(function(){
       }
     }
   });
-});
-
-});
+}

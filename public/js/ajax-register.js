@@ -1,21 +1,22 @@
       "use strict;"
       function register(){
 
+        var $username = $('#emailAcc');
+        var $password = $('#passwordAcc');
+        var $login    = $('#js-login');
+
+        var $pPhoto   = $('#profile-photo');
+        var $regis    = $('#regis');
+        var $access   = $('#access');
+        var $logout   = $('#logout');
+        var $userbar  = $('#user-bar');
+        var $pUpdate  = $('#product-update');
 
         let regData = {
-          first_name : $("#first_name").val(),
-          last_name  : $("#last_name").val(),
+          name       : $("#name").val(),
           email      : $("#email").val(),
           password   : $("#password").val(),
-          rep_pass   : $("#rep_pass").val(),
-          last_buy   : $("#last_buy").val(),
-          home_num   : $("#home_num").val(),
-          street     : $("#street").val(),
-          suburb     : $("#suburb").val(),
-          lada       : $("#lada").val(),
-          phone      : $("#phone").val(),
-          age        : $("#age").val(),
-          gender     : $("#gender").val()
+          rep_pass   : $("#rep_pass").val()
         };
 
         if(regData.password === regData.rep_pass){
@@ -25,8 +26,17 @@
                 data: regData,
                 cache: false,
                 success: function(data, status, xhr) {
-                  console.log(xhr)
-                  console.log(status, "The request has be");
+
+                  accessOcultar();
+                  console.log(data["Set-Cookie"]);
+                  document.cookie = data["Set-Cookie"];
+                  console.log("cookie", document.cookie);
+                  $regis.css('display', 'none');
+                  $access.css('display', 'none');
+                  $userbar.css('display', 'block');
+                  $logout.css('display', 'block');
+                  $pUpdate.css('display', 'block');
+                  $pPhoto.attr('src', data["Set-Cookie"].img);
                 }
               })
         }else{
