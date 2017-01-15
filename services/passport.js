@@ -7,7 +7,7 @@ module.exports = {
   },
 
   serialize : function(model, done){
-    console.log("run serialize, user:", model);
+    console.log("run serialize", model);
     var serializedUser = {
       name : model.name,
       id   : model.id,
@@ -17,7 +17,7 @@ module.exports = {
   },
 
   deserialize : function(user, done){
-    console.log("run deserialize");
+    console.log("user: ", user);
     return done(null, user);
   }
 

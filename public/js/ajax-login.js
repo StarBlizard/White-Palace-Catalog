@@ -7,6 +7,7 @@ function login(){
   var $access   = $('#access');
   var $logout   = $('#logout');
   var $userbar  = $('#user-bar');
+  var $userShN  = $('#user-show-name');
   var $pUpdate  = $('#product-update');
 
   var credentials = {
@@ -29,6 +30,7 @@ function login(){
         $logout.css('display', 'block');
         $pUpdate.css('display', 'block');
         $pPhoto.attr('src', data["Set-Cookie"].img);
+	$userShN.html(data["Set-Cookie"].name);
       }
     }
   });

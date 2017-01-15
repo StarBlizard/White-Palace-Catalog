@@ -9,7 +9,9 @@
 }
 
 #user-bar{
-  background-color: green;
+  background-color: #5F9EA0;
+  color           : white;
+  text-align      : center;
   height          : 500px;
   width           : 200px;
   float           : left;

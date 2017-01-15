@@ -9,12 +9,11 @@ var passport      = require('../services/passport.js');
  * */
 
  module.exports = function(){
-   console.log("run locale");
    return new LocalStrategy(
      function(email, password, done){
-         console.log("logging");
+         console.log("logging, local");
 
-         User.forge({ email : email }).fetch().then(function(model){
+         User.forge( {email : email }).fetch().then(function(model){
  
            //if(model){ console.log("error: ", email.NotFoundEror ); return done(email.NotFoundEror) }
 

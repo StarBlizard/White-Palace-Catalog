@@ -14,15 +14,20 @@
 
         if(regData.password === regData.rep_pass){
               $.ajax({
-                method: "POST",
-                url: "/register",
-                data: regData,
-                cache: false,
+                method : "POST",
+                url    : "/register",
+                data   : regData,
+                cache  : false,
                 success: function(data, status, xhr) {
 		  console.log("\ndata: ", data, "\nstatus: ", status, "\nxhr: ", xhr)
-		  location.href = location.href;
+		  location.href = '/';
 
-                }
+                },
+		statusCode: {
+			401 : function(){
+			  alert("This email is alredy on use");
+			}
+		}
               })
         }else{
           console.log('Fallo en la confirmacion de la contraseña: ', regData.password + " != " + regData.rep_pass);
