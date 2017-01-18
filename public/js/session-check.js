@@ -20,8 +20,9 @@
         $userbar.css('display', 'block');
         $logout.css('display', 'block');
         $pUpdate.css('display', 'block');
-        $pPhoto.attr('src', data["Set-Cookie"].img);
 	$userShN.html(data["Set-Cookie"].name);
+	$pPhoto.attr('src', data["Set-Cookie"].img);
+	
       }
     }
   })

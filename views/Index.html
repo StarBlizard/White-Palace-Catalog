@@ -131,7 +131,7 @@
 
 
 				    <label class="checkbox primary" for="checkbox1c">
-              <input type="checkbox" data-toggle="radio" value="" id="checkbox1c" required>
+              <input type="checkbox" data-toggle="radio" value="" id="checkbox1c">
               Recordarme
             </label>
 
@@ -139,6 +139,10 @@
   					  <button type="button" onclick="login()" >Acceder</button>
 					    <button type="button" class="btn btn-link" onclick="accessOcultar()">Salir</button>
 				    </div>
+				    <div>- O bien, registrese con Facebook -</div>
+				    <div style="text-align: center; font-size: 30%">
+					    <a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook"></span> Facebook </a>
+			            </div>
   	</div>
 
 
@@ -267,6 +271,7 @@
     <script src="https://unpkg.com/react@15.3.2/dist/react.min.js"></script>
     <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.min.js"></script>
     <script src="./dist/js/vendor/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/fb.js"></script>
     <script type="text/javascript" src="./js/session-check.js"></script>
     <script type="text/javascript" src="./js/ajax-logout.js"></script>
     <script type="text/javascript" src="./js/ajax-login.js"></script>
