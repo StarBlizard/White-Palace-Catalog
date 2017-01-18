@@ -32,7 +32,7 @@ Server Side technologies:
 * Express    v2.14
 * Knex       v0.10
 * Bookshelf  v0.9
-* Underscore v1.8
+* Passport   v0.3
 
 Client Side technologies:
 
