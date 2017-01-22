@@ -18,9 +18,6 @@
 
     <script type="text/javascript">
 
-    window.onload = function(){
-      console.log(document.cookie);
-    }
 
     </script>
   </head>
@@ -31,18 +28,22 @@
       <!-- _________________________________________________________________________________________________________________________________ -->
 
       <nav class="navbar navbar-inverse" role="navigation" id="main-bar">     <!-- Inicia la barra superior -->
+       
        <div class="navbar-header">
          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
            <span class="sr-only">Toggle navigation</span>
          </button>
          <a class="navbar-brand" href="#">White Palace</a>
-        </div>
+       </div>
+
        <div class="collapse navbar-collapse" id="navbar-collapse-01">
          <ul class="nav navbar-nav">
-           <li id="product-update"><a href="#fakelink">Agregar Productos</a></li>
+           <li id="product-update" style="display: none"><a href="#fakelink">Agregar Productos</a></li>
          </ul>
+
          <div class="navbar-form navbar-right" >
-             <div class="input-group">
+           
+	       	 <div class="input-group">
                <input class="form-control" id="navbarInput-01" type="search" placeholder="Buscar">
                <span class="input-group-btn">
                  <button type="submit" class="btn"><span class="fui-search"></span></button>
@@ -57,39 +58,22 @@
 
     <!-- ______________________________________________________________________________________________________ -->
 
-    <div id="secun">
 
         <div id='user-bar'><!-- User Bar -->
-          <div class="col-lg-8 col-lg-offset-4">
+          <div id='user-bar-data' class="col-lg-8 col-lg-offset-4" >
               <img id="profile-photo" class="img-responsive" src="/" alt="">
               <div id="user-show-name"></div>
           </div>
         </div>
 
+	<!-- Products -->
+
         <div id="products-container">
-        	<div class="presCon">
-        		<div class="interior">
-        			<div class="imgCont">
-     	    			<a href="#fakelink" onclick="productMostrar()">
-     	    				<img class="imageInt" src="./img/66186003.jpg">
-     	    			</a>
-        			</div>
-        			<div class="textoInt">
-        				<div class="producto">
-        					<strong>Producto: </strong>
-        				</div>
 
-        				<div class="precio">
-        					<strong>Precio: </strong>
-        				</div>
 
-        			</div>
-        		</div>
-        	</div>
         </div>
 
     </div>
-  </div>
     <!-- _________________________________________________________________________________________________________________________________________ -->
 
  <!--   <ul class="pagination-plain" id="pg">    Paginacion
@@ -136,12 +120,14 @@
             </label>
 
   				  <div style="text-align: center">
-  					  <button type="button" onclick="login()" >Acceder</button>
-					    <button type="button" class="btn btn-link" onclick="accessOcultar()">Salir</button>
-				    </div>
-				    <div>- O bien, registrese con Facebook -</div>
-				    <div style="text-align: center; font-size: 30%">
-					    <a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook"></span> Facebook </a>
+  				    <button type="button" onclick="login()" >Acceder</button>
+				    <button type="button" class="btn btn-link" onclick="accessOcultar()">Salir</button>
+				  </div>
+				  <div style="text-align: center; padding-top: 5%">
+			            <font size="3">- O bien, registrese con Facebook -</font>                                  </div>
+				    <div style="text-align: center; padding-top: 5%">
+
+			              <a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook"></span> Facebook </a>
 			            </div>
   	</div>
 
@@ -197,74 +183,62 @@
   			<div style="text-align: center; bottom: 5%; left:42%; position: static">
   				<button type="button" class="btn btn-success" id="register" onclick="register()">Registrarse</button>
 			  	<button type="button" class="btn btn-link" onclick="regOcultar()">Salir</button>
+				<div style="text-align: center; padding-top: 2%">
+			         <font size="3">- O bien, registrese con Facebook -</font>
+				</div>
+				<div style="padding-top: 2%"><a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook"></span> Facebook </a></div>
 				</div>
   		</div>
 
-
-  				<!-- ____________________________________________________________________________________________________________________________-->
-
-  				<!-- Ventana modal de las imagenes -->
-
-		<div id="productFade" class="overlay"></div>
-  			<div id="productLight" class="modal">
-  				<div>
-  					<img class="imageInt" src="./img/66186003.jpg">
-  				</div>
-				<p>Para "<a href="javascript:void(0)" onclick="productOcultar()">cerrar</a></p>
-  	</div>
 
     <!-- ______________________________________________________________________________________________________________________________________ -->
 
 <div id="pUpdateFade" class="overlay" onclick="pUpdateOcultar()"></div>  <!-- Product update modal window -->
 
     <div id="pUpdateLight" class="upModal">
+
         <div style="text-align: center; margin:2px; margin-bottom: 65px;">
           <h4>Subir un Producto</h4>
         </div>
 
-        <div>
-           <div>
+         <div id="product-update-img">
              Foto:
-           </div>
 
-          <input type="file" style="width:100%" id="p-img-file" required="true" accept="image/*">
+           <input type="file" style="width:100%" id="p-img-file" required="true" accept="image/*">
 
-          <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-            <img class="img-responsive" id="p-img" class=""/>
-          </div>
+       
+           <img class="img-responsive" id="p-img" src="http://icon-icons.com/icons2/37/PNG/512/slr_camera_application_slr_3037.png"/>
+         </div>
+
+	 <div id="product-update-info">
+
+          <div id="product-update-name">
+            <div>
+              Nombre del producto:
+            </div>
+            <input type="text"  style="width:100%" id="pName" required="true">
+         </div>
+
+	 <div id="product-update-price">
+           Precio: 
+           <input type="text" style="width:50%; right: 50%;" id="pPrice" required="true">
 
          </div>
 
-        <div style="margin:5px; margin-bottom: 20px;">
-          <div>
-            Nombre del producto:
-          </div>
-          <input type="text"  style="width:100%" id="pName" required="true">
-        </div>
+         <div id="product-update-descr">
+            <div>
+              Descripcion:
+            </div>
 
-       <div style="margin: 5px; margin-bottom: 30px;">
-          <div>
-            Descripcion:
-          </div>
-
-         <input type="text" style="width:100%" id="pDesc" required="true">
-
-        </div>
-
-        <div style="margin: 5px; margin-bottom: 30px;">
-           <div>
-             Precio:
-           </div>
-
-          <input type="text" style="width:100%" id="pPrice" required="true">
+           <input type="text" style="width:100%; height:100%;" id="pDesc" required="true">
 
          </div>
-
-
-        <div style="text-align: center">
-          <button type="button" id="p-upload" >Subir</button>
-          <button type="button" class="btn btn-link" onclick="pUpdateOcultar()">Salir</button>
-        </div>
+        
+         <div style="text-align: center" id="product-update-buttons">
+           <button type="button" id="p-upload" >Subir</button>
+           <button type="button" class="btn btn-link" onclick="pUpdateOcultar()">Salir</button>
+         </div>
+       </div>
 </div>
   				<!-- ________________________________________________________jquery-3.0.0.min.js________________________________________________________________-->
 
@@ -272,11 +246,13 @@
     <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.min.js"></script>
     <script src="./dist/js/vendor/jquery.min.js"></script>
     <script type="text/javascript" src="./js/fb.js"></script>
+    <script type="text/javascript" src="./js/ajax-load-products.js"></script>
     <script type="text/javascript" src="./js/session-check.js"></script>
     <script type="text/javascript" src="./js/ajax-logout.js"></script>
     <script type="text/javascript" src="./js/ajax-login.js"></script>
     <script type="text/javascript" src="./js/ajax-register.js"></script>
     <script type="text/javascript" src="./js/ajax-product-update.js"></script>
+
     <script src="./dist/js/flat-ui.min.js"></script>
     <script type="text/javascript" src="./JS/modal-windows.js"></script>
   </body>

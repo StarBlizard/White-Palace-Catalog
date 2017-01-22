@@ -35,8 +35,6 @@ app.get('/auth/facebook/callback',passport.authenticate('facebook', {
     scope:['email']
   }));
 
-// Products
-
-app.post('/pload', productController.load);
+// Product update
 app.post('/product-update', productController.upload);
 app.get('/download', productController.download);

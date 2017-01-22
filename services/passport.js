@@ -12,7 +12,8 @@ module.exports = {
       name : model.name,
       id   : model.id,
       img  : model.img_path,
-      fb   : model.fb_id
+      fb   : model.fb_id,
+      email: model.email_phone || model.email
     }
     return done(null, serializedUser);
   },

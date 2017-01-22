@@ -1,5 +1,6 @@
 $(function(){
 
+  var xhr         = new XMLHttpRequest();
   var $pName      = $('#pName');
   var $pDesc      = $('#pDesc');
   var $pUpdateBut = $('#p-upload');
@@ -25,13 +26,29 @@ $(function(){
   });
 
   $pUpdateBut.click(function(){
-  var xhr = new XMLHttpRequest();
-  var form = new FormData();
-  var file = $pImgElement[0].files[0];
-  form.append("llave", file);
-  form.append('price', $pPrice.val());
-  form.append('name', $pName.val());
-  xhr.open('POST', '/product-update', true);
-  xhr.send(form);
+
+    var form = new FormData();
+    var file = $pImgElement[0].files[0];
+
+    form.append("llave", file);
+    form.append('fb', user.fb);
+    form.append('price', $pPrice.val());
+    form.append('product', $pName.val());
+    form.append('description', $pDesc.val());
+    form.append('user', user.id);
+    
+
+    xhr.open('POST', '/product-update', true);
+    xhr.send(form);
   })
+  
+   xhr.onload = function(e) {
+      if(xhr.readyState === 4){
+        if(xhr.status === 201){
+	  alert("Producto registrado correctamente");
+	  location.href = '/';
+        }
+      } 
+    }
+
 });

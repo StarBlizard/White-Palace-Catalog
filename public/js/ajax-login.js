@@ -31,6 +31,7 @@ function login(){
         $pUpdate.css('display', 'block');
         $pPhoto.attr('src', data["Set-Cookie"].img);
 	$userShN.html(data["Set-Cookie"].name);
+	user = data["Set-cookie"];
       }
     }
   });

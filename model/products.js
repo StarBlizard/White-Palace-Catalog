@@ -8,8 +8,9 @@ var product = db.Model.extend({
   price       : 0,
   description : "",
   img_path    : '',
-  category    : false
+  user        : 0,
+  fb_user     : 0
 })
 
 // Export User model
-module.exports.user = product
+module.exports.product = product

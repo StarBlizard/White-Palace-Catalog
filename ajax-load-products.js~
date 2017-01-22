@@ -1,0 +1,11 @@
+(function(){
+  var $pContainer = $('#products-container');
+  
+  $.ajax({
+    url     : '/pload',
+    method  : 'POST',
+    success : function(data, status, xhr){
+       console.log("continua");
+    } 
+  });	
+});
