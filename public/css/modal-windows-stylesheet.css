@@ -69,7 +69,7 @@
     .upModal{
       border-radius: 10px;
       display      : none;
-      position     : absolute;
+      position     : fixed;
       top          : 5%;
       left         : 5%;
       width        : 90%;

@@ -5,10 +5,12 @@ $(function(){
   var $pDesc      = $('#pDesc');
   var $pUpdateBut = $('#p-upload');
   var $pPrice     = $('#pPrice');
+  var $pUpdCat    = $('#pUpd-categ');
 
   var $pUpdate     = $('#product-update');
   var $pImgElement = $('#p-img-file');
   var $pImgFile;
+
 
   $pImgElement.change(function(){
     var reader = new FileReader();
@@ -30,11 +32,14 @@ $(function(){
     var form = new FormData();
     var file = $pImgElement[0].files[0];
 
+    console.log($pUpdCat.val())
+
     form.append("llave", file);
     form.append('fb', user.fb);
     form.append('price', $pPrice.val());
     form.append('product', $pName.val());
     form.append('description', $pDesc.val());
+    form.append('category', $pUpdCat.val())
     form.append('user', user.id);
     
 

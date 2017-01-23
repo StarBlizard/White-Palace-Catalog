@@ -50,23 +50,70 @@ module.exports.download = function(req, res){
 }
 
 
+
 // To load 10 products
 module.exports.load = function(req, res){
-  Product.fetchAll().then(function(resData){
-    var data = {
-      prods     : [],
-      moreProds : false
-    };
-   
-    for (var i = req.body.counter ; i<req.body.counter+10 ; i++){
-      if(resData.models[i]){
-        data.prods[i] = resData.models[i];
-      }else{
-        i = req.body.counter + 11;
-	data.moreProds = false;
+	
+  if(!req.body.category){
+
+    if(req.body.search){   // To search products
+
+      var searchData = {
+        prods     : [],
+        moreProds : false
+      };   
+
+         Product.query().where('product', 'like',req.body.search, 'OR','description', 'like', req.body.search ).then(function(resData){
+	for (var i = req.body.counter ; i<req.body.counter+10 ; i++){
+        if(resData[i]){
+          searchData.prods[i] = resData[i];
+        }else{
+          i = req.body.counter + 11; 
+  	  searchData.moreProds = false;
+        }
       }
-    }
+	 return res.send(searchData);
+      })
+    }else{
+	
+      Product.fetchAll().then(function(resData){
+
+        var data = {
+          prods     : [],
+          moreProds : false
+        };
+   
+        for (var i = req.body.counter ; i<req.body.counter+10 ; i++){
+          if(resData.models[i]){
+            data.prods[i] = resData.models[i];
+          }else{
+            i = req.body.counter + 11; 
+    	    data.moreProds = false;
+          }
+        }
     
-    return res.send(data);
-  });
-} 
+        return res.send(data);
+      });
+    }
+  }else{          // To request all category products
+    new Product({category : req.body.category}).query().where({category : req.body.category}).then(function(resData){
+      var data = {
+        prods     : [],
+        moreProds : false
+      };
+  
+
+      for (var i = req.body.counter ; i<req.body.counter+10 ; i++){
+        if(resData[i]){
+          data.prods[i] = resData[i];
+        }else{
+          i = req.body.counter + 11; 
+  	  data.moreProds = false;
+        }
+      }
+
+      return res.send(data);
+    }) 
+  }
+}
+

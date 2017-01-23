@@ -36,17 +36,32 @@
          <a class="navbar-brand" href="#">White Palace</a>
        </div>
 
-       <div class="collapse navbar-collapse" id="navbar-collapse-01">
+       <div class="collapse navbar-collapse btn-group" id="navbar-collapse-01">
          <ul class="nav navbar-nav">
            <li id="product-update" style="display: none"><a href="#fakelink">Agregar Productos</a></li>
-         </ul>
+
+	   <!-- Inverted skin  -->
+       <li> 
+         <div class="btn-group" style="margin-top:4.3%">
+		 <button class="btn btn-inverse dropdown-toggle" type="button" data-toggle="dropdown"> Categoria <span class="caret"></span>
+           </button>
+           <ul class="dropdown-menu dropdown-menu-inverse" role="menu">
+            <li><a onclick="productLoad('vehiculos', false, 0)" href="#">Vehiculos</a></li>
+            <li><a onclick="productLoad('ropa', false, 0)" href="#">Ropa</a></li>
+            <li><a onclick="productLoad('electronica', false, 0)" href="#">Electronica</a></li>
+	    <li><a onclick="productLoad('arte', false, 0)" href="#">Arte</a></li>
+	    <li><a onclick="productLoad('hogar', false, 0)" href="#">Hogar</a></li>
+	    <li><a onclick="productLoad('oficina', false, 0)" href="#">Oficina</a></li>
+           </ul>
+	 </div>
+      </ul>
 
          <div class="navbar-form navbar-right" >
            
-	       	 <div class="input-group">
+	   <div class="input-group">
                <input class="form-control" id="navbarInput-01" type="search" placeholder="Buscar">
                <span class="input-group-btn">
-                 <button type="submit" class="btn"><span class="fui-search"></span></button>
+                 <button type="submit" id="search" onclick="productLoad(false, $('#navbarInput-01').val(), 0, true)" class="btn"><span class="fui-search"></span></button>
                </span>
              </div>
              <button class="btn btn-default navbar-btn" type="button" onclick="accessMostrar()" id="access">Acceder</button>
@@ -74,21 +89,6 @@
         </div>
 
     </div>
-    <!-- _________________________________________________________________________________________________________________________________________ -->
-
- <!--   <ul class="pagination-plain" id="pg">    Paginacion
-      <li class="previous">
-        <a href="#">Atras</a>
-      </li>
-      <li>
-        <a href="#">1</a>
-      </li>
-      <li class="next">
-        <a href="#">Siguiente</a>	  Esto se debe de agregar automaticamente cuando el numero de elementos supere cierto limite
-      </li>
-    </ul> -->
-
-        <!-- ______________________________________________________________________________________________________________________________________ -->
 
 		<div id="accessFade" class="overlay" onclick="accessOcultar()"></div>  <!-- Ventana modal para "Acceder" -->
 
@@ -222,7 +222,19 @@
 	 <div id="product-update-price">
            Precio: 
            <input type="text" style="width:50%; right: 50%;" id="pPrice" required="true">
+	
+         </div>
 
+	 <div style="margin-top: 40%">
+	   <select id="pUpd-categ" class="form-control select select-primary select-block mbl">
+	     <option value="vehiculos">Categoria</option>
+             <option value="vehiculos">Vehiculos</option>
+             <option value="ropa">Ropa</option>
+             <option value="electronica">Electronica</option>
+             <option value="arte">Arte</option>
+             <option value="hogar">Hogar</option>
+	     <option value="oficina">Oficina</option>
+           </select>
          </div>
 
          <div id="product-update-descr">
@@ -252,7 +264,6 @@
     <script type="text/javascript" src="./js/ajax-login.js"></script>
     <script type="text/javascript" src="./js/ajax-register.js"></script>
     <script type="text/javascript" src="./js/ajax-product-update.js"></script>
-
     <script src="./dist/js/flat-ui.min.js"></script>
     <script type="text/javascript" src="./JS/modal-windows.js"></script>
   </body>

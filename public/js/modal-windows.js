@@ -1,39 +1,35 @@
 function accessOcultar(){
+  $("body").css("overflow", "scroll");
   $('#accessLight').css('display', 'none');
   $('#accessFade').css('display', 'none');
 }
 
 function accessMostrar() {
+  $("body").css("overflow", "hidden");
   $('#accessLight').css('display', 'block');
   $('#accessFade').css('display', 'block');
 }
 
 function regOcultar(){
+  $("body").css("overflow", "scroll");
   $('#regLight').css('display', 'none');
   $('#regFade').css('display', 'none');
 }
 
 function regMostrar() {
+  $("body").css("overflow", "hidden");
   $('#regLight').css('display', 'block');
   $('#regFade').css('display', 'block');
 }
 
-function productOcultar(){
-  $('#productLight').css('display', 'none');
-  $('#productFade').css('display', 'none');
-}
-
-function productMostrar() {
-  $('#productLight').css('display', 'block');
-  $('#productFade').css('display', 'block');
-}
-
 function pUpdateOcultar(){
+  $("body").css("overflow", "scroll");
   $('#pUpdateLight').css('display', 'none');
   $('#pUpdateFade').css('display', 'none');
 }
 
 function pUpdateMostrar() {
+  $("body").css("overflow", "hidden"); 
   $('#pUpdateLight').css('display', 'block');
   $('#pUpdateFade').css('display', 'block');
 }

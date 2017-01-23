@@ -10,7 +10,6 @@ var user = {};
   var $pUpdate  = $('#product-update');
   var $userShN  = $('#user-show-name');
   
-  console.log("run check");
   $.ajax({
     url     : '/',
     method  : 'POST',
