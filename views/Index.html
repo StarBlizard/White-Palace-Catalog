@@ -120,7 +120,7 @@
             </label>
 
   				  <div style="text-align: center">
-  				    <button type="button" onclick="login()" >Acceder</button>
+  				    <button type="button" >Acceder</button>
 				    <button type="button" class="btn btn-link" onclick="accessOcultar()">Salir</button>
 				  </div>
 				  <div style="text-align: center; padding-top: 5%">
@@ -175,13 +175,13 @@
               <div>
                 Correo:
               </div>
-              <div><input type="text" placeholder="Loquesea@...com" style="whidth:10%" class="form-control" id="email" placeholder="paleta@....com"/></div>
+              <div><input type="email" placeholder="Loquesea@...com" style="whidth:10%" class="form-control" id="email" placeholder="paleta@....com"/></div>
             </div>
 
         </div>
 
   			<div style="text-align: center; bottom: 5%; left:42%; position: static">
-  				<button type="button" class="btn btn-success" id="register" onclick="register()">Registrarse</button>
+  				<button type="button" class="btn btn-success" onclick="window.regLight.register()" id="register">Registrarse</button>
 			  	<button type="button" class="btn btn-link" onclick="regOcultar()">Salir</button>
 				<div style="text-align: center; padding-top: 2%">
 			         <font size="3">- O bien, registrese con Facebook -</font>
@@ -254,17 +254,19 @@
 </div>
   				<!-- ________________________________________________________jquery-3.0.0.min.js________________________________________________________________-->
 
-    <script src="https://unpkg.com/react@15.3.2/dist/react.min.js"></script>
+    <script src="https://unpkg.com/react@15.3.2/dist/react.min.js">        </script>
+    <script src="/js/underscore.js">                                       </script>
+    <script src="./js/backbone.js">                                        </script>
     <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.min.js"></script>
-    <script src="./dist/js/vendor/jquery.min.js"></script>
-    <script type="text/javascript" src="./js/fb.js"></script>
-    <script type="text/javascript" src="./js/ajax-load-products.js"></script>
-    <script type="text/javascript" src="./js/session-check.js"></script>
-    <script type="text/javascript" src="./js/ajax-logout.js"></script>
-    <script type="text/javascript" src="./js/ajax-login.js"></script>
-    <script type="text/javascript" src="./js/ajax-register.js"></script>
-    <script type="text/javascript" src="./js/ajax-product-update.js"></script>
-    <script src="./dist/js/flat-ui.min.js"></script>
-    <script type="text/javascript" src="./JS/modal-windows.js"></script>
+    <script src="./dist/js/vendor/jquery.min.js">                          </script>
+    <script type="text/javascript" src="./js/fb.js">                       </script>
+    <script src='./js/regdata-ver.js'>					   </script>
+    <script type="text/javascript" src="./js/ajax-load-products.js">       </script>
+    <script type="text/javascript" src="./js/session-check.js">            </script>
+    <script type="text/javascript" src="./js/ajax-logout.js">              </script>
+    <script type="text/javascript" src="./js/ajax-login.js">               </script>
+    <script type="text/javascript" src="./js/ajax-product-update.js">      </script>
+    <script src="./dist/js/flat-ui.min.js">                                </script>
+    <script type="text/javascript" src="./JS/modal-windows.js">            </script>
   </body>
 </html>
