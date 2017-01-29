@@ -1,0 +1,32 @@
+<html>
+
+	<head>
+			
+	
+	</head>
+
+	<body>
+
+		<div id="container"> Loading... </div>
+
+	</body>
+
+	<script src="./js/underscore.js"> </script>
+	<script src="./js/jquery-3.0.0.min.js"> </script>
+	<script src="./js/backbone.js"> </script>
+
+		<script type="text/javascript"> 
+
+			var AppView = Backbone.View.extend({
+				el : '#container',
+				initialize : function(){
+					this.render();
+				},
+				render : function(){
+					this.$el.html("Hello World");
+				}
+			});
+
+		</script>
+
+</html>
