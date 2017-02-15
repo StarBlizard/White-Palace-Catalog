@@ -38,6 +38,6 @@ app.get('/auth/facebook/callback',passport.authenticate('facebook', {
 
 // Products
 
-app.post('/pload', productController.load);
 app.post('/product-update', productController.upload);
 app.get('/download', productController.download);
+app.get('/load-products/*', productController.load);

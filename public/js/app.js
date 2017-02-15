@@ -1,6 +1,8 @@
 var app = {
-	router : {},
-	views  : {},
-	models : {}
+	router 	    : {},
+	views  	    : {},
+	models	    : {},
+	controllers : {},
+	events 	    : {},
+	utilities   : {}
 };
-

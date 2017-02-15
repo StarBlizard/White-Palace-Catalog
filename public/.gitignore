@@ -7,7 +7,7 @@ _site
 *.diff
 *.err
 *.orig
-*.log
+*.editorconfig*.log
 *.rej
 *.swo
 *.swp

@@ -1,6 +1,15 @@
-app.views.productsContainer = Backbone.View.extend({
-	el : '#products-container',
-	render : function(){
-		this.$el.html('<div>mieh</div>');
+var ProductsContainer = Backbone.View.extend({
+	el     : '#products-container',
+	events : function(){
+		var that = this;
+		var events = {
+			"click"	: this.hello,
+		}
+		return events;
+	},
+	hello : function(){
 	}
-})
+});
+
+
+app.views.productsContainer = new ProductsContainer();
