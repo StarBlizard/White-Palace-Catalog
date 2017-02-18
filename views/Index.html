@@ -25,53 +25,55 @@
 
     <div id="contenedor">  <!-- Div contenedor -->
 
-      <!-- _________________________________________________________________________________________________________________________________ -->
+    <div class="js-header">
+        <!-- _________________________________________________________________________________________________________________________________ -->
 
-      <nav class="navbar navbar-inverse" role="navigation" id="main-bar">     <!-- Inicia la barra superior -->
-       
-       <div class="navbar-header">
-         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
-           <span class="sr-only">Toggle navigation</span>
-         </button>
-         <a class="navbar-brand" href="#">White Palace</a>
-       </div>
+        <nav class="navbar navbar-inverse" role="navigation" id="main-bar">     <!-- Inicia la barra superior -->
 
-       <div class="collapse navbar-collapse btn-group" id="navbar-collapse-01">
-         <ul class="nav navbar-nav">
-           <li id="product-update" style="display: none"><a href="#fakelink">Agregar Productos</a></li>
-
-	   <!-- Inverted skin  -->
-       <li> 
-         <div class="btn-group" style="margin-top:4.3%">
-		 <button class="btn btn-inverse dropdown-toggle" type="button" data-toggle="dropdown"> Categoria <span class="caret"></span>
+         <div class="navbar-header">
+           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
+             <span class="sr-only">Toggle navigation</span>
            </button>
-           <ul class="dropdown-menu dropdown-menu-inverse" role="menu">
-            <li><a onclick="app.controllers.loadProducts(0, false, 'vehiculos')" href="#">Vehiculos</a></li>
-            <li><a onclick="app.controllers.loadProducts(0, false, 'ropa')" href="#">Ropa</a></li>
-            <li><a onclick="app.controllers.loadProducts(0, false, 'electronica')" href="#">Electronica</a></li>
-	    <li><a onclick="app.controllers.loadProducts(0, false, 'arte')" href="#">Arte</a></li>
-	    <li><a onclick="app.controllers.loadProducts(0, false, 'hogar')" href="#">Hogar</a></li>
-	    <li><a onclick="app.controllers.loadProducts(0, false, 'oficina')" href="#">Oficina</a></li>
-           </ul>
-	 </div>
-      </ul>
-
-         <div class="navbar-form navbar-right" >
-           
-	   <div class="input-group">
-               <input class="form-control" id="navbarInput-01" type="search" placeholder="Buscar">
-               <span class="input-group-btn">
-                 <button type="submit" id="search" onclick="app.controllers.loadProducts(0, $('#navbarInput-01').val(), false)" class="btn"><span class="fui-search"></span></button>
-               </span>
-             </div>
-             <button class="btn btn-default navbar-btn" type="button" onclick="accessMostrar()" id="access">Acceder</button>
-             <button class="btn btn-default navbar-btn" type="button" onclick="regMostrar()" id="regis">Registrarse</button>
-             <button class="btn btn-default navbar-btn" type="button" href="javascript:history.go(0)" id="logout" style="display:none">Salir</button>
+           <a class="navbar-brand" href="#">White Palace</a>
          </div>
-       </div><!-- /.navbar-collapse -->
-    </nav><!-- /navbar -->
 
-    <!-- ______________________________________________________________________________________________________ -->
+         <div class="collapse navbar-collapse btn-group" id="navbar-collapse-01">
+           <ul class="nav navbar-nav">
+             <li id="product-update" style="display: none"><a href="#fakelink">Agregar Productos</a></li>
+
+       <!-- Inverted skin  -->
+         <li>
+           <div class="btn-group" style="margin-top:4.3%">
+       <button class="btn btn-inverse dropdown-toggle" type="button" data-toggle="dropdown"> Categoria <span class="caret"></span>
+             </button>
+             <ul class="dropdown-menu dropdown-menu-inverse" role="menu">
+              <li><a onclick="app.controllers.loadProducts(0, false, 'vehiculos')" href="#">Vehiculos</a></li>
+              <li><a onclick="app.controllers.loadProducts(0, false, 'ropa')" href="#">Ropa</a></li>
+              <li><a onclick="app.controllers.loadProducts(0, false, 'electronica')" href="#">Electronica</a></li>
+        <li><a onclick="app.controllers.loadProducts(0, false, 'arte')" href="#">Arte</a></li>
+        <li><a onclick="app.controllers.loadProducts(0, false, 'hogar')" href="#">Hogar</a></li>
+        <li><a onclick="app.controllers.loadProducts(0, false, 'oficina')" href="#">Oficina</a></li>
+             </ul>
+     </div>
+        </ul>
+
+           <div class="navbar-form navbar-right" >
+
+       <div class="input-group">
+                 <input class="form-control" id="navbarInput-01" type="search" placeholder="Buscar">
+                 <span class="input-group-btn">
+                   <button type="submit" id="search" onclick="app.controllers.loadProducts(0, $('#navbarInput-01').val(), false)" class="btn"><span class="fui-search"></span></button>
+                 </span>
+               </div>
+               <button class="btn btn-default navbar-btn" type="button" onclick="accessMostrar()" id="access">Acceder</button>
+               <button class="btn btn-default navbar-btn" type="button" onclick="regMostrar()" id="regis">Registrarse</button>
+               <button class="btn btn-default navbar-btn" type="button" href="javascript:history.go(0)" id="logout" style="display:none">Salir</button>
+           </div>
+         </div><!-- /.navbar-collapse -->
+      </nav><!-- /navbar -->
+      <!-- ______________________________________________________________________________________________________ -->
+    </div>
+
 
 
         <div id='user-bar'><!-- User Bar -->
@@ -84,8 +86,17 @@
 	<!-- Products -->
 
         <div id="products-container">
-
-
+           <div class="js-next"></div>
+           <div class="js-prev"></div>
+          <!--<p>A</p>-->
+          <!--<p>B</p>-->
+          <!--<p>C</p>-->
+          <!--<p>D</p>-->
+          <!--<p>E</p>-->
+          <!--<p>F</p>-->
+          <!--<p>G</p>-->
+          <!--<p>H</p>-->
+          <!--<p>J</p>-->
         </div>
 
     </div>
@@ -206,7 +217,7 @@
 
            <input type="file" style="width:100%" id="p-img-file" required="true" accept="image/*">
 
-       
+
            <img class="img-responsive" id="p-img" src="http://icon-icons.com/icons2/37/PNG/512/slr_camera_application_slr_3037.png"/>
          </div>
 
@@ -220,9 +231,9 @@
          </div>
 
 	 <div id="product-update-price">
-           Precio: 
+           Precio:
            <input type="text" style="width:50%; right: 50%;" id="pPrice" required="true">
-	
+
          </div>
 
 	 <div style="margin-top: 40%">
@@ -245,7 +256,7 @@
            <input type="text" style="width:100%; height:100%;" id="pDesc" required="true">
 
          </div>
-        
+
          <div style="text-align: center" id="product-update-buttons">
            <button type="button" id="p-upload" >Subir</button>
            <button type="button" class="btn btn-link" onclick="pUpdateOcultar()">Salir</button>
@@ -258,21 +269,36 @@
     <script src="./dist/js/vendor/jquery.min.js">                          </script>
     <script src="/js/underscore.js">                                       </script>
     <script src="./js/backbone.js">                                        </script>
+
     <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.min.js"></script>
     <script type="text/javascript" src="./js/fb.js">                       </script>
     <script src='./js/regdata-ver.js'>					   </script>
-    <script src='./js/app.js'>                                             </script>
+
+    <script src='./js/app.js'></script>
+    <script src='./js/routes.js'></script>
+
+     <!--views-->
+    <script src='./js/app/views/container.js'></script>
+    <script src='./js/app/views/products.js'></script>
+
+    <!--Collections-->
+    <script src='./js/app/collections/products.js'></script>
+
+    <!--Models-->
+    <script src='./js/app/models/product.js'></script>
+
     <script src='./js/events/scrollMaxDown.js'>				   </script>
     <script src='./js/model/products.js'> 				   </script>
     <script src='./js/views/document-view.js'>				   </script>
     <script src='./js/views/products-container.js'> 			   </script>
     <script src='./js/controllers/index.js'> 				   </script>
-    <script src='./js/routes.js'>                                          </script>
     <script src='./js/historystart.js'> 				   </script>
+
     <script type="text/javascript" src="./js/session-check.js">            </script>
     <script type="text/javascript" src="./js/ajax-logout.js">              </script>
     <script type="text/javascript" src="./js/ajax-login.js">               </script>
     <script type="text/javascript" src="./js/ajax-product-update.js">      </script>
+
     <script src="./dist/js/flat-ui.min.js">                                </script>
     <script type="text/javascript" src="./JS/modal-windows.js">            </script>
   </body>

@@ -1,14 +1,17 @@
-var Router = Backbone.Router.extend({
+App.Router = Backbone.Router.extend({
+
 	routes : {
-		''       	 : 'home',
-	}
+		''      : 'home',
+    '/pepe' : 'pepe'
+	},
+
+  home : function(){
+    this.container = new App.Views.ContainerView({
+      el : '#contenedor'
+    });
+  },
+
+  pepe : function(){
+  }
+
 });
-
-app.router = new Router();
-
-
-/*
- * Load products
- */
-
-app.router.on('route:home', app.controllers.loadProducts(app.utilities.products.counter));

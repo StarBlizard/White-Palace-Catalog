@@ -1,8 +1,11 @@
-var app = {
-	router 	    : {},
-	views  	    : {},
-	models	    : {},
-	controllers : {},
-	events 	    : {},
-	utilities   : {}
+let App = {
+  Models      : {},
+  Collections : {},
+  Views       : {}
+
+  Initialize : function(){
+    App.router = new App.Router();
+  }
 };
+
+$(App.Initialize);
