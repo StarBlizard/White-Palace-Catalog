@@ -36,5 +36,6 @@ Server Side technologies:
 
 Client Side technologies:
 
+* Backbonejs v1.3
 * JQuery     v1.11
 * Underscore v1.8

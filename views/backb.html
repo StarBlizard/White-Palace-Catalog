@@ -1,0 +1,55 @@
+<html>
+
+	<head>
+			
+	
+	</head>
+
+	<body>
+
+		<section id="todoapp">
+
+			<header id="header">
+
+				<h1>Todos</h1>
+				<input id="new-todo" placeholder="What needs to be done?">
+					
+			</header>
+
+			<section id="main">
+
+				<ul id="todo-list"></ul>
+
+			</section>	
+
+		</section>
+
+
+	</body>
+
+	<script src="./js/underscore.js"> </script>
+	<script src="./js/jquery-3.0.0.min.js"> </script>
+	<script src="./js/backbone.js"> </script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/backbone-localstorage.js/1.0/backbone.localStorage-min.js" type="text/javascript">
+
+	<script type="text/javascript"> 
+
+		var app = {};
+			
+		app.Todo = Backbone.Model.extend({
+			defaults : {
+				title: '',
+				completed : false
+			}
+		});
+
+		app.TodoList = Backbone.Collection.extend({
+			model: app.Todo,
+			localStorage: new Store("backbone-todo")
+		});
+
+		app.todoList = new app.TodoList();
+
+	</script>
+
+</html>
