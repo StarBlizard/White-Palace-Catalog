@@ -46,12 +46,12 @@
 		 <button class="btn btn-inverse dropdown-toggle" type="button" data-toggle="dropdown"> Categoria <span class="caret"></span>
            </button>
            <ul class="dropdown-menu dropdown-menu-inverse" role="menu">
-            <li><a onclick="app.controllers.loadProducts(0, false, 'vehiculos')" href="#">Vehiculos</a></li>
-            <li><a onclick="app.controllers.loadProducts(0, false, 'ropa')" href="#">Ropa</a></li>
-            <li><a onclick="app.controllers.loadProducts(0, false, 'electronica')" href="#">Electronica</a></li>
-	    <li><a onclick="app.controllers.loadProducts(0, false, 'arte')" href="#">Arte</a></li>
-	    <li><a onclick="app.controllers.loadProducts(0, false, 'hogar')" href="#">Hogar</a></li>
-	    <li><a onclick="app.controllers.loadProducts(0, false, 'oficina')" href="#">Oficina</a></li>
+            <li><a onclick="productLoad('vehiculos', false, 0)" href="#">Vehiculos</a></li>
+            <li><a onclick="productLoad('ropa', false, 0)" href="#">Ropa</a></li>
+            <li><a onclick="productLoad('electronica', false, 0)" href="#">Electronica</a></li>
+	    <li><a onclick="productLoad('arte', false, 0)" href="#">Arte</a></li>
+	    <li><a onclick="productLoad('hogar', false, 0)" href="#">Hogar</a></li>
+	    <li><a onclick="productLoad('oficina', false, 0)" href="#">Oficina</a></li>
            </ul>
 	 </div>
       </ul>
@@ -61,7 +61,7 @@
 	   <div class="input-group">
                <input class="form-control" id="navbarInput-01" type="search" placeholder="Buscar">
                <span class="input-group-btn">
-                 <button type="submit" id="search" onclick="app.controllers.loadProducts(0, $('#navbarInput-01').val(), false)" class="btn"><span class="fui-search"></span></button>
+                 <button type="submit" id="search" onclick="productLoad(false, $('#navbarInput-01').val(), 0, true)" class="btn"><span class="fui-search"></span></button>
                </span>
              </div>
              <button class="btn btn-default navbar-btn" type="button" onclick="accessMostrar()" id="access">Acceder</button>
@@ -120,7 +120,7 @@
             </label>
 
   				  <div style="text-align: center">
-  				    <button type="button" >Acceder</button>
+  				    <button type="button" onclick="login()" >Acceder</button>
 				    <button type="button" class="btn btn-link" onclick="accessOcultar()">Salir</button>
 				  </div>
 				  <div style="text-align: center; padding-top: 5%">
@@ -175,13 +175,13 @@
               <div>
                 Correo:
               </div>
-              <div><input type="email" placeholder="Loquesea@...com" style="whidth:10%" class="form-control" id="email" placeholder="paleta@....com"/></div>
+              <div><input type="text" placeholder="Loquesea@...com" style="whidth:10%" class="form-control" id="email" placeholder="paleta@....com"/></div>
             </div>
 
         </div>
 
   			<div style="text-align: center; bottom: 5%; left:42%; position: static">
-  				<button type="button" class="btn btn-success" onclick="window.regLight.register()" id="register">Registrarse</button>
+  				<button type="button" class="btn btn-success" id="register" onclick="register()">Registrarse</button>
 			  	<button type="button" class="btn btn-link" onclick="regOcultar()">Salir</button>
 				<div style="text-align: center; padding-top: 2%">
 			         <font size="3">- O bien, registrese con Facebook -</font>
@@ -254,26 +254,17 @@
 </div>
   				<!-- ________________________________________________________jquery-3.0.0.min.js________________________________________________________________-->
 
-    <script src="https://unpkg.com/react@15.3.2/dist/react.min.js">        </script>
-    <script src="./dist/js/vendor/jquery.min.js">                          </script>
-    <script src="/js/underscore.js">                                       </script>
-    <script src="./js/backbone.js">                                        </script>
+    <script src="https://unpkg.com/react@15.3.2/dist/react.min.js"></script>
     <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.min.js"></script>
-    <script type="text/javascript" src="./js/fb.js">                       </script>
-    <script src='./js/regdata-ver.js'>					   </script>
-    <script src='./js/app.js'>                                             </script>
-    <script src='./js/events/scrollMaxDown.js'>				   </script>
-    <script src='./js/model/products.js'> 				   </script>
-    <script src='./js/views/document-view.js'>				   </script>
-    <script src='./js/views/products-container.js'> 			   </script>
-    <script src='./js/controllers/index.js'> 				   </script>
-    <script src='./js/routes.js'>                                          </script>
-    <script src='./js/historystart.js'> 				   </script>
-    <script type="text/javascript" src="./js/session-check.js">            </script>
-    <script type="text/javascript" src="./js/ajax-logout.js">              </script>
-    <script type="text/javascript" src="./js/ajax-login.js">               </script>
-    <script type="text/javascript" src="./js/ajax-product-update.js">      </script>
-    <script src="./dist/js/flat-ui.min.js">                                </script>
-    <script type="text/javascript" src="./JS/modal-windows.js">            </script>
+    <script src="./dist/js/vendor/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/fb.js"></script>
+    <script type="text/javascript" src="./js/ajax-load-products.js"></script>
+    <script type="text/javascript" src="./js/session-check.js"></script>
+    <script type="text/javascript" src="./js/ajax-logout.js"></script>
+    <script type="text/javascript" src="./js/ajax-login.js"></script>
+    <script type="text/javascript" src="./js/ajax-register.js"></script>
+    <script type="text/javascript" src="./js/ajax-product-update.js"></script>
+    <script src="./dist/js/flat-ui.min.js"></script>
+    <script type="text/javascript" src="./JS/modal-windows.js"></script>
   </body>
 </html>
