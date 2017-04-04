@@ -28,7 +28,8 @@
     "passport-local"        : "1.0.x",
     "underscore"            : "1.8.x",
     "passport-facebook"	    : "2.1.x",
-    "connect-busboy"	    : "0.0.x"
+    "connect-busboy"	    : "0.0.x",
+    "underscore"            : "^1.8.x"
   },
   "devDependencies": {},
   "scripts": {
