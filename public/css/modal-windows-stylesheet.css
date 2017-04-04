@@ -1,0 +1,135 @@
+  .overlay{
+    text-align   : center;
+     display     : none;
+     position    : fixed;
+     top         : 0;
+     left        : 0;
+     width       : 100%;
+     height      : 100%;
+     background  : #000;
+     z-index     :1001;
+     opacity     : 0.75;
+     -moz-opacity: 0.75;
+     filter      : alpha(opacity=75);
+}
+
+	.modal {
+        text-align   : center;
+        border-radius: 10px;
+        display      : none;
+        position     : fixed;
+        top          : 15%;
+        left         : 15%;
+        width        : 70%;
+        height       : auto;
+        padding      : 16px;
+        background   : #fff;
+        color        : #333;
+        z-index      : 1002;
+        overflow     : auto;
+    }
+
+  /*  Estilo del popup -------------------------------------------------------------------------------- --------------------------------------*/
+
+    .regModal {
+        border-radius: 10px;
+        display      : none;
+        position     : fixed;
+        top          : 17%;
+        left         : 17%;
+        width        : 65%;
+        height       : auto;
+        padding      : 1.5%;
+        background   : #fff;
+        color        : #333;
+        z-index      :1002;
+        overflow     : auto;
+    }
+
+
+    .acModal {
+        border-radius: 10px;
+        display      : none;
+        position     : fixed;
+        top          : 15%;
+        left         : 35%;
+        width        : 30%;
+        height       : 75%;
+        padding      : 16px;
+        background   : #fff;
+        color        : #333;
+        z-index      : 1002;
+        overflow     : auto;
+    }
+
+    .user-rg-data{
+      margin: 5%
+    }
+
+    .upModal{
+      border-radius: 10px;
+      display      : none;
+      position     : fixed;
+      top          : 5%;
+      left         : 5%;
+      width        : 90%;
+      height       : 90%;
+      padding      : 1%;
+      background   : #fff;
+      color        : #333;
+      z-index      : 1002;
+      overflow     : auto;
+    }
+
+    #product-update-img{
+      margin          : 2%;
+      margin-right    : 4%;
+      vertical-align  : middle;
+      max-width       : 40%;
+      padding         : 5%;
+      display         : block;
+      top             : auto;
+      bottom          : auto;
+      float           : left;
+      height          : 70%;
+    }
+
+
+    #product-update-info{
+      margin          : 2%;
+      position        : static;
+      max-width       : 50%;
+      height          : 70%;
+      float           : left;
+    }
+
+    #product-update-name{
+      position: relative;
+      margin  : 2%;
+      float   : left;
+      width   : 90%;
+    }
+
+    #product-update-descr{
+      position: relative;
+      margin  : 2%;
+      float   : left;
+      width   : 90%;
+      height  : 30%;
+    }
+
+    #product-update-price{
+      position: static;
+      margin  : 2%;
+      float   : left;
+      width   : 90%;
+    }
+
+
+    #product-update-buttons{
+      position  : relative;
+      margin-top: 15%;
+      float     : left;
+      width     : 90%;
+    }
+

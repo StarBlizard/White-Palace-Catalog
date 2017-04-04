@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Curso node</title>
+		<meta chartset="utf-8">
+		<script type="text/javascript">
+			var xhttp
+
+			function creaObjetoAjax () { //Mayoría de navegadores
+		 		var obj;
+		 		if (window.XMLHttpRequest) {
+					obj=new XMLHttpRequest();
+					}
+		 		else { //para IE 5 y IE 6
+					obj=new ActiveXObject(Microsoft.XMLHTTP);
+					}
+		 		return obj;
+		 	}
+
+			function crea_query_string() {
+			  var summoner = document.getElementById("summoner");
+				var level    = document.getElementById("level")
+				var division = document.getElementById('division')
+
+			  return "summoner=" + encodeURIComponent(summoner.value) +
+							 "level=" 	 + encodeURIComponent(level.value) 	  +
+							 "division=" + encodeURIComponent(division.value)	+
+			         "&nocache=" + Math.random();
+			}
+
+
+
+				function corre(){
+					xhttp = creaObjetoAjax();
+					xhttp.open("POST", "/cliente/pruebaPOST2.js", true);
+
+					xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+					var queryString = crea_query_string();
+					xhttp.send(queryString);
+
+				}
+
+
+
+		</script>
+	</head>
+
+	<body>
+		<h1>Hola {user}</h1>
+		<div>
+				<div>
+					Invocador: {summoner}
+					<input type="text" required name="summoner" id="summoner">
+				</div>
+
+				<div>
+					Nivel: {level}
+					<input type="text" required id="level">
+				</div>
+
+				<div>
+					Division: {division}
+					<input type="text" required id="division">
+				</div>
+				<input type="button" value="Enviar AJAX" onclick="corre()"/>
+			</form>
+		</div>
+	</body>
+</html>

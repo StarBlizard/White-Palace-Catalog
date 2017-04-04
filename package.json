@@ -1,0 +1,57 @@
+{
+  "author"      : "Yeltzin <yillanes@ucol.mx>",
+  "name"        : "whitepalace",
+  "version"     : "1.0.0",
+  "description" : "This is a web page made using node js ",
+  "main"        : "app.js",
+  "contributors": [
+    {
+      "name"  : "Narciso Guillen",
+      "email" : "guillen.narciso@gmail.com"
+    }
+  ],
+  "dependencies": {
+    "bcrypt-nodejs"         : "0.0.x",
+    "body-parser"           : "1.15.x",
+    "busboy"                : "0.2.x",
+    "bookshelf"             : "0.9.x",
+    "cookie-parser"         : "1.4.x",
+    "ejs"                   : "2.4.x",
+    "express"               : "4.13.x",
+    "express-mysql-session" : "^1.0.0-rc.x",
+    "express-session"       : "^1.13.x",
+    "knex"                  : "0.10.x",
+    "mysql"                 : "2.10.x",
+    "nconf"                 : "0.8.x",
+    "npm"                   : "2.14.x",
+    "passport"              : "0.3.x",
+    "passport-local"        : "1.0.x",
+    "underscore"            : "1.8.x",
+    "passport-facebook"	    : "2.1.x",
+    "connect-busboy"	    : "0.0.x"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "engines": {
+    "node": "4.2.4"
+  },
+  "repository": {
+    "type": "git",
+    "url" : "git+https://github.com/StarBlizard/White-Palace-Catalog.git"
+  },
+  "keywords": [
+    "web",
+    "catalogue",
+    "node",
+    "js",
+    "express",
+    "bookshelf"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/StarBlizard/White-Palace-Catalog/issues"
+  },
+  "homepage": "https://github.com/StarBlizard/White-Palace-Catalog#readme"
+}

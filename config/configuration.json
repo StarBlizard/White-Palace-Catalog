@@ -1,0 +1,24 @@
+{
+  "PORT" : 3031,
+  "database" : {
+    "client"     : "mysql",
+    "connection" : {
+      "host"     : "127.0.0.1",
+      "port"     : "9090",
+      "user"     : "root",
+      "password" : "",
+      "database" : "whitepalace",
+      "charset"  : "utf8"
+    }
+  },
+  "parse":{
+    "json"       : {"params": {"limit":"50mb"}},
+    "urlencoded" : {"params": {"limit":"50mb","extended":true}
+    }
+  },
+  "facebookAuth" : {
+    "clientID"     : "246470219114059",
+    "clientSecret" : "ceab55fa3666034374b18e67dcaebb1a",
+    "callbackURL"  : "http://localhost:3031/auth/facebook/callback"
+  }
+}
