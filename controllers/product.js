@@ -54,8 +54,6 @@ module.exports.download = function(req, res){
 // To load 10 products to the product model on the front
 module.exports.load = function(req, res){
 	var body = url.parse(req.url, true).query;
-	console.log(body);
-
 	if(!body.category){
     		if(body.search){   // To search products
 
@@ -65,9 +63,10 @@ module.exports.load = function(req, res){
       			};   
 
         		Product.query().where('product', 'like', body.search, 'OR','description', 'like', body.search ).then(function(resData){
+				
+				var counter = body.counter || 0;
 
-				console.log(resData);
-				for (var i = body.counter ; i<body.counter+10 ; i++){
+				for (var i = counter ; i<counter+10 ; i++){
         				if(resData[i]){
           					searchData.prods[i] = resData[i];
        					}else{
@@ -78,16 +77,18 @@ module.exports.load = function(req, res){
 				return res.send(searchData.prods);
       			})
     		}else{
-	
+			//To load latest products
      			Product.fetchAll().then(function(resData){
         			var data = {
           				prods     : [],
          				moreProds : false
         			};
+
+				var count =  body.counter || 0;
   
-        			for (var i = body.counter ; i<body.counter+10 ; i++){
+        			for (var i = count, j=0 ; i < count+10 ; i++, j++){
           				if(resData.models[i]){
-            					data.prods[i] = resData.models[i];
+            					data.prods[j] = resData.models[i];
           				}else{
             					i = body.counter + 11; 
     	    					data.moreProds = false;
@@ -103,16 +104,18 @@ module.exports.load = function(req, res){
         			moreProds : false
       			};
   
+			var count =  body.counter || 0;
 
-      			for (var i = body.counter ; i<body.counter+10 ; i++){
+      			for (var i = count, j=0 ; i < count+10 ; i++, j++){
         			if(resData[i]){
-          				data.prods[i] = resData[i];
+          				data.prods[j] = resData[i];
         			}else{
           				i = body.counter + 11; 
   	  				data.moreProds = false;
         			}
       			}
 
+			console.log(data.prods);
       			return res.send(data.prods);
     			}) 
 	}

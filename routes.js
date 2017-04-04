@@ -20,7 +20,6 @@ app.get('/', indexController.index);
 app.post('/', sessionController.check);
 app.post('/logout',  sessionController.logout);
 app.post('/register', sessionController.register);
-app.get('/bck', indexController.bck);
 
 // Authenticate
 app.post('/login', passport.authenticate('local'),  sessionController.login);

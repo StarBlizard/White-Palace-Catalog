@@ -2,13 +2,28 @@
     background-color: white;
   }
 
+  body{
+    overflow : hidden; 
+  }
+
   #products-container{
-    position        : relative;
+  	overflow : hidden;
+	display  : relative;
+	float    : right;
+	height	 : 85%;
+    	width	 : 82.5%;
+        z-index  : 1;
+  }
+
+  #products-container-fix{
+    overflow        : scroll;
+    bottom	    : -10px;
+    position        : fixed;
+    display	    : block;
     float           : right;
-    height          : 85%;
-    width           : 85%;
-    top             : 18%;
-    z-index         : 1;
+    height	    : 85%;
+    width	    : 85%;
+
   }
 
   .product{
@@ -21,16 +36,13 @@
   }
 
   .product-img{
-    margin          : 1%;
-    margin-left     : 2%;
-    vertical-align  : middle;
-    max-width       : 85%;
-    max-height      : 88%;
-    display         : block;
-    top             : auto;
-    bottom          : auto;
-    float           : left;
-    position        : relative;
+    position: relative;
+    top: 50%;
+    right: 12%;
+    transform: translateX(-50%);
+    transform: translateY(-50%);
+    max-width	    : 250px;
+    min-width	    : 250px
   }
 
   .product-name{ 

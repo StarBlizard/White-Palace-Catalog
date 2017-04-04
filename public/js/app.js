@@ -1,7 +1,9 @@
 let App = {
   Models      : {},
   Collections : {},
-  Views       : {}
+  Views       : {},
+
+  Events      : {},
 
   Initialize : function(){
     App.router = new App.Router();

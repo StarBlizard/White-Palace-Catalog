@@ -22,7 +22,6 @@ module.exports.register = function(req, res){
 	       if(model){
 		 res.status(401).send("This email is alredy on use");      // if the email is registred... 401
 	       }else{
-		 var img = 
 
 	         new User({
                    name       : data.name,
